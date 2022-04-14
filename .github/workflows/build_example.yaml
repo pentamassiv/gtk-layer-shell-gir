@@ -1,0 +1,39 @@
+name: Build_example
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:devel
+    steps:
+    - name: Update system
+      run: apt-get update -q -y && apt-get upgrade -y
+    - name: Install git, GTK and Rust libraries
+      run: apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'true'
+
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          gtk-layer-shell/target/
+          gtk-layer-shell/gtk-layer-shell-sys/target/
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+    - name: Build the example
+      working-directory: ./gtk-layer-shell
+      run: cargo build --example simple-example

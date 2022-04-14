@@ -1,0 +1,28 @@
+[package]
+name = "gtk-layer-shell"
+version = "0.3.0"
+authors = ["pentamassiv <pentamassiv@posteo.de>"]
+license = "MIT"
+description = "Save gir-generated wrapper for gtk-layer-shell"
+repository = "https://github.com/pentamassiv/gtk-layer-shell-gir"
+keywords = ["gtk", "gtk-layer-shell", "wayland", "gir", "wrapper"]
+categories = ["api-bindings", "gui"]
+edition = "2021"
+
+[dependencies]
+libc = "0.2.122"
+bitflags = "1.3.2"
+glib = "0.15.10"
+glib-sys = "0.15.10"
+gdk = {version = "0.15.4", features= ["v3_22"]}
+gtk = "0.15.4"
+ffi = { package = "gtk-layer-shell-sys", path = "./gtk-layer-shell-sys", version = "0.2.4"}
+
+[dev-dependencies]
+gio = "0.15.10"
+
+[features]
+v0_4 = ["ffi/v0_4"]
+v0_5 = ["ffi/v0_5", "v0_4"]
+v0_6 = ["ffi/v0_6", "v0_5"]
+dox = []

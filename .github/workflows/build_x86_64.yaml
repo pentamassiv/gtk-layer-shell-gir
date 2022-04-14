@@ -1,0 +1,86 @@
+name: Build_x86
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  pull_request:
+    branches:
+      - "master"
+  push:
+    branches:
+      - "master"
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:devel
+    steps:
+    - name: Update system
+      run: apt-get update -q -y && apt-get upgrade -y
+    - name: Install git, GTK and Rust libraries
+      run: apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
+    - uses: actions/checkout@v3
+      with:
+        submodules: 'true'
+
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/bin/
+          ~/.cargo/registry/index/
+          ~/.cargo/registry/cache/
+          ~/.cargo/git/db/
+          gtk-layer-shell/target/
+          gtk-layer-shell/gtk-layer-shell-sys/target/
+        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+
+
+    - name: Update gir submodule
+      run: git submodule update --remote
+    - name: Clone gir-files repo to get the newest fixed gir files
+      run: |
+        rm -rf ./gir-files
+        git clone --depth 1 https://github.com/gtk-rs/gir-files.git
+        rm -rf ./gir-files/.github
+        rm ./gir-files/.gitignore
+    - name: Copy newest GtkLayerShell.gir file into gir-files folder
+      run: |
+          CWD_MY_VAR=$(pwd)
+          cd /usr/share/gir-1.0
+          for i in GtkLayerShell-*.*.gir; do cp "$i" $CWD_MY_VAR/gir-files/"${i}"; done
+    - name: Install gir
+      working-directory: ./gir
+      run: |
+          ls
+          export PATH=$PATH:/github/home/.cargo/bin
+          cargo install --path .
+    - name: Build and test the sys crate
+      working-directory: ./gtk-layer-shell/gtk-layer-shell-sys
+      run: |
+          ls
+          export PATH=$PATH:/github/home/.cargo/bin
+          gir -o .
+          cargo build --verbose
+          cargo test --verbose
+    - name: Build and test the wrapper crate
+      working-directory: ./gtk-layer-shell/
+      run: |
+          ls
+          export PATH=$PATH:/github/home/.cargo/bin
+          gir -o .
+          gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
+          cargo install rustdoc-stripper
+          rustdoc-stripper -s -n
+          rustdoc-stripper -g -o docs.md
+          rm docs.md
+          cargo build --verbose
+          cargo test --verbose
+    - name: Create Pull Request when code was committed to master
+      if: ${{ github.event_name == 'schedule' }}
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Github Actions updated the version
