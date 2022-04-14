@@ -5,10 +5,10 @@ on:
     - cron: '0 2 * * *'
   pull_request:
     branches:
-      - "master"
+      - "main"
   push:
     branches:
-      - "master"
+      - "main"
 
 env:
   CARGO_TERM_COLOR: always
@@ -79,7 +79,7 @@ jobs:
           rm docs.md
           cargo build --verbose
           cargo test --verbose
-    - name: Create Pull Request when code was committed to master
+    - name: Create Pull Request when code was committed to main
       if: ${{ github.event_name == 'schedule' }}
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
