@@ -1,6 +1,7 @@
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell.svg)](https://crates.io/crates/gtk-layer-shell)
-[![dependency status](https://deps.rs/repo/github/pentamassiv/gtk-layer-shell-gir/tree/master/gtk-layer-shell/status.svg)](https://deps.rs/repo/github/pentamassiv/gtk-layer-shell-gir/tree/master/gtk-layer-shell)
-![Build](https://github.com/pentamassiv/gtk-layer-shell-gir/workflows/Build/badge.svg)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.2.3/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.2.3)
+[![Build_x86](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml)
+[![Build_aarch64](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml)
 
 # gtk-layer-shell
 This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir). The unsafe bindings can be found in this [subfolder](gtk-layer-shell-sys).
