@@ -1,6 +1,6 @@
 [package]
 name = "gtk-layer-shell"
-version = "0.2.3"
+version = "0.2.4"
 authors = ["pentamassiv <pentamassiv@posteo.de>"]
 license = "MIT"
 description = "Save gir-generated wrapper for gtk-layer-shell"
@@ -16,7 +16,7 @@ glib = "0.15.10"
 glib-sys = "0.15.10"
 gdk = {version = "0.15.4", features= ["v3_22"]}
 gtk = "0.15.4"
-ffi = { package = "gtk-layer-shell-sys", path = "./gtk-layer-shell-sys", version = "0.2.5"}
+ffi = { package = "gtk-layer-shell-sys", path = "./gtk-layer-shell-sys", version = "0.2.6"}
 
 [dev-dependencies]
 gio = "0.15.10"

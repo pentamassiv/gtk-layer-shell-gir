@@ -1,5 +1,5 @@
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell-sys.svg)](https://crates.io/crates/gtk-layer-shell-sys)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.2.5/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.2.5)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.2.6/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.2.6)
 [![Build_x86](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml)
 [![Build_aarch64](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml)
 
@@ -27,9 +27,9 @@ If you regenerate the binding, because you have a new version of the GtkLayerShe
 Now you can generate, build and test the bindings.
 ```bash
 cd gtk-layer-shell/gtk-layer-shell-sys
-gir -o .        # Regenerate the bindings
-cargo build     # Build the created bindings
-cargo test      # Test the created bindings
+gir -o .                       # Regenerate the bindings
+cargo build --features v0_6    # Build the created bindings
+cargo test --features v0_6     # Test the created bindings
 cd ..
 ```
 

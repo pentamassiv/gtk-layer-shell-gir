@@ -11,3 +11,9 @@ external_libraries = [
     "Gdk",
     "Gtk",
 ]
+
+[[object]]
+name = "GtkLayerShell.*"
+    [[object.function]]
+    name = "get_zwlr_layer_surface_v1"
+    ignore = true

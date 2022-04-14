@@ -1,5 +1,5 @@
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell.svg)](https://crates.io/crates/gtk-layer-shell)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.2.3/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.2.3)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.2.4/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.2.4)
 [![Build_x86](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml)
 [![Build_aarch64](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml)
 
@@ -15,8 +15,8 @@ Generating the wrapper yourself is not necessary to be able to use it. You can j
 Now that you have generated the bindings you will want to generate the safe wrapper.
 ```bash
 gir -o .
-cargo build
-cargo test
+cargo build --features v0_6
+cargo test --features v0_6
 ```
 There should not have been any errors.
 To make sure everything you need was created, run the following command.
@@ -30,6 +30,8 @@ gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
 cargo install rustdoc-stripper
 rustdoc-stripper -s -n
 rustdoc-stripper -g -o docs.md
+sed -i 's/crate::gtk::Window/gtk::Window/g' src/auto/functions.rs   # Hack to fix an error when building the docs
+cargo doc --features v0_6
 ```
 Congratulations, you've done it :-)
 

@@ -5,8 +5,7 @@
 use glib::translate::*;
 use std::fmt;
 
-#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Clone, Copy)]
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "GtkLayerShellEdge")]
 pub enum Edge {
@@ -26,20 +25,24 @@ pub enum Edge {
     /// future releases as more entries are added)
     #[doc(alias = "GTK_LAYER_SHELL_EDGE_ENTRY_NUMBER")]
     EntryNumber,
-#[doc(hidden)]
+    #[doc(hidden)]
     __Unknown(i32),
 }
 
 impl fmt::Display for Edge {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Edge::{}", match *self {
-            Self::Left => "Left",
-            Self::Right => "Right",
-            Self::Top => "Top",
-            Self::Bottom => "Bottom",
-            Self::EntryNumber => "EntryNumber",
-            _ => "Unknown",
-        })
+        write!(
+            f,
+            "Edge::{}",
+            match *self {
+                Self::Left => "Left",
+                Self::Right => "Right",
+                Self::Top => "Top",
+                Self::Bottom => "Bottom",
+                Self::EntryNumber => "EntryNumber",
+                _ => "Unknown",
+            }
+        )
     }
 }
 
@@ -55,7 +58,7 @@ impl IntoGlib for Edge {
             Self::Bottom => ffi::GTK_LAYER_SHELL_EDGE_BOTTOM,
             Self::EntryNumber => ffi::GTK_LAYER_SHELL_EDGE_ENTRY_NUMBER,
             Self::__Unknown(value) => value,
-}
+        }
     }
 }
 
@@ -70,7 +73,7 @@ impl FromGlib<ffi::GtkLayerShellEdge> for Edge {
             ffi::GTK_LAYER_SHELL_EDGE_BOTTOM => Self::Bottom,
             ffi::GTK_LAYER_SHELL_EDGE_ENTRY_NUMBER => Self::EntryNumber,
             value => Self::__Unknown(value),
-}
+        }
     }
 }
 
@@ -80,8 +83,7 @@ impl FromGlib<ffi::GtkLayerShellEdge> for Edge {
 /// defined way. Not supported for protocol version < 4.
 /// GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER: Should not be used except to get the number of entries. (NOTE: may change in
 /// future releases as more entries are added)
-#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Clone, Copy)]
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "GtkLayerShellKeyboardMode")]
 pub enum KeyboardMode {
@@ -93,19 +95,23 @@ pub enum KeyboardMode {
     OnDemand,
     #[doc(alias = "GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER")]
     EntryNumber,
-#[doc(hidden)]
+    #[doc(hidden)]
     __Unknown(i32),
 }
 
 impl fmt::Display for KeyboardMode {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "KeyboardMode::{}", match *self {
-            Self::None => "None",
-            Self::Exclusive => "Exclusive",
-            Self::OnDemand => "OnDemand",
-            Self::EntryNumber => "EntryNumber",
-            _ => "Unknown",
-        })
+        write!(
+            f,
+            "KeyboardMode::{}",
+            match *self {
+                Self::None => "None",
+                Self::Exclusive => "Exclusive",
+                Self::OnDemand => "OnDemand",
+                Self::EntryNumber => "EntryNumber",
+                _ => "Unknown",
+            }
+        )
     }
 }
 
@@ -120,7 +126,7 @@ impl IntoGlib for KeyboardMode {
             Self::OnDemand => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND,
             Self::EntryNumber => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER,
             Self::__Unknown(value) => value,
-}
+        }
     }
 }
 
@@ -134,12 +140,11 @@ impl FromGlib<ffi::GtkLayerShellKeyboardMode> for KeyboardMode {
             ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND => Self::OnDemand,
             ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER => Self::EntryNumber,
             value => Self::__Unknown(value),
-}
+        }
     }
 }
 
-#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
-#[derive(Clone, Copy)]
+#[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "GtkLayerShellLayer")]
 pub enum Layer {
@@ -159,20 +164,24 @@ pub enum Layer {
     /// future releases as more entries are added)
     #[doc(alias = "GTK_LAYER_SHELL_LAYER_ENTRY_NUMBER")]
     EntryNumber,
-#[doc(hidden)]
+    #[doc(hidden)]
     __Unknown(i32),
 }
 
 impl fmt::Display for Layer {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "Layer::{}", match *self {
-            Self::Background => "Background",
-            Self::Bottom => "Bottom",
-            Self::Top => "Top",
-            Self::Overlay => "Overlay",
-            Self::EntryNumber => "EntryNumber",
-            _ => "Unknown",
-        })
+        write!(
+            f,
+            "Layer::{}",
+            match *self {
+                Self::Background => "Background",
+                Self::Bottom => "Bottom",
+                Self::Top => "Top",
+                Self::Overlay => "Overlay",
+                Self::EntryNumber => "EntryNumber",
+                _ => "Unknown",
+            }
+        )
     }
 }
 
@@ -188,7 +197,7 @@ impl IntoGlib for Layer {
             Self::Overlay => ffi::GTK_LAYER_SHELL_LAYER_OVERLAY,
             Self::EntryNumber => ffi::GTK_LAYER_SHELL_LAYER_ENTRY_NUMBER,
             Self::__Unknown(value) => value,
-}
+        }
     }
 }
 
@@ -203,7 +212,6 @@ impl FromGlib<ffi::GtkLayerShellLayer> for Layer {
             ffi::GTK_LAYER_SHELL_LAYER_OVERLAY => Self::Overlay,
             ffi::GTK_LAYER_SHELL_LAYER_ENTRY_NUMBER => Self::EntryNumber,
             value => Self::__Unknown(value),
-}
+        }
     }
 }
-

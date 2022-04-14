@@ -36,4 +36,4 @@ jobs:
 
     - name: Build the example
       working-directory: ./gtk-layer-shell
-      run: cargo build --example simple-example
+      run: cargo build --features v0_6 --example simple-example
