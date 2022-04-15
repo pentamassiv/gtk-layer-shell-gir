@@ -10,6 +10,7 @@ use crate::Layer;
 use glib::object::IsA;
 use glib::translate::*;
 
+
 /// When auto exclusive zone is enabled, exclusive zone is automatically set to the
 /// size of the `window` + relevant margin. To disable auto exclusive zone, just set the
 /// exclusive zone to 0 or any other fixed value.
@@ -38,9 +39,7 @@ pub fn auto_exclusive_zone_enable(window: &impl IsA<gtk::Window>) {
 pub fn auto_exclusive_zone_is_enabled(window: &impl IsA<gtk::Window>) -> bool {
     assert_initialized_main_thread!();
     unsafe {
-        from_glib(ffi::gtk_layer_auto_exclusive_zone_is_enabled(
-            window.as_ref().to_glib_none().0,
-        ))
+        from_glib(ffi::gtk_layer_auto_exclusive_zone_is_enabled(window.as_ref().to_glib_none().0))
     }
 }
 
@@ -57,10 +56,7 @@ pub fn auto_exclusive_zone_is_enabled(window: &impl IsA<gtk::Window>) -> bool {
 pub fn is_anchor(window: &impl IsA<gtk::Window>, edge: Edge) -> bool {
     assert_initialized_main_thread!();
     unsafe {
-        from_glib(ffi::gtk_layer_get_anchor(
-            window.as_ref().to_glib_none().0,
-            edge.into_glib(),
-        ))
+        from_glib(ffi::gtk_layer_get_anchor(window.as_ref().to_glib_none().0, edge.into_glib()))
     }
 }
 
@@ -76,7 +72,9 @@ pub fn is_anchor(window: &impl IsA<gtk::Window>, edge: Edge) -> bool {
 #[doc(alias = "get_exclusive_zone")]
 pub fn exclusive_zone(window: &impl IsA<gtk::Window>) -> i32 {
     assert_initialized_main_thread!();
-    unsafe { ffi::gtk_layer_get_exclusive_zone(window.as_ref().to_glib_none().0) }
+    unsafe {
+        ffi::gtk_layer_get_exclusive_zone(window.as_ref().to_glib_none().0)
+    }
 }
 
 ///
@@ -97,9 +95,7 @@ pub fn exclusive_zone(window: &impl IsA<gtk::Window>) -> i32 {
 pub fn is_keyboard_interactivity(window: &impl IsA<gtk::Window>) -> bool {
     assert_initialized_main_thread!();
     unsafe {
-        from_glib(ffi::gtk_layer_get_keyboard_interactivity(
-            window.as_ref().to_glib_none().0,
-        ))
+        from_glib(ffi::gtk_layer_get_keyboard_interactivity(window.as_ref().to_glib_none().0))
     }
 }
 
@@ -116,9 +112,7 @@ pub fn is_keyboard_interactivity(window: &impl IsA<gtk::Window>) -> bool {
 pub fn keyboard_mode(window: &impl IsA<gtk::Window>) -> KeyboardMode {
     assert_initialized_main_thread!();
     unsafe {
-        from_glib(ffi::gtk_layer_get_keyboard_mode(
-            window.as_ref().to_glib_none().0,
-        ))
+        from_glib(ffi::gtk_layer_get_keyboard_mode(window.as_ref().to_glib_none().0))
     }
 }
 
@@ -134,7 +128,9 @@ pub fn keyboard_mode(window: &impl IsA<gtk::Window>) -> KeyboardMode {
 #[doc(alias = "get_layer")]
 pub fn layer(window: &impl IsA<gtk::Window>) -> Layer {
     assert_initialized_main_thread!();
-    unsafe { from_glib(ffi::gtk_layer_get_layer(window.as_ref().to_glib_none().0)) }
+    unsafe {
+        from_glib(ffi::gtk_layer_get_layer(window.as_ref().to_glib_none().0))
+    }
 }
 
 ///
@@ -147,7 +143,9 @@ pub fn layer(window: &impl IsA<gtk::Window>) -> Layer {
 #[doc(alias = "get_major_version")]
 pub fn major_version() -> u32 {
     assert_initialized_main_thread!();
-    unsafe { ffi::gtk_layer_get_major_version() }
+    unsafe {
+        ffi::gtk_layer_get_major_version()
+    }
 }
 
 /// ## `window`
@@ -162,7 +160,9 @@ pub fn major_version() -> u32 {
 #[doc(alias = "get_margin")]
 pub fn margin(window: &impl IsA<gtk::Window>, edge: Edge) -> i32 {
     assert_initialized_main_thread!();
-    unsafe { ffi::gtk_layer_get_margin(window.as_ref().to_glib_none().0, edge.into_glib()) }
+    unsafe {
+        ffi::gtk_layer_get_margin(window.as_ref().to_glib_none().0, edge.into_glib())
+    }
 }
 
 ///
@@ -175,7 +175,9 @@ pub fn margin(window: &impl IsA<gtk::Window>, edge: Edge) -> i32 {
 #[doc(alias = "get_micro_version")]
 pub fn micro_version() -> u32 {
     assert_initialized_main_thread!();
-    unsafe { ffi::gtk_layer_get_micro_version() }
+    unsafe {
+        ffi::gtk_layer_get_micro_version()
+    }
 }
 
 ///
@@ -188,7 +190,9 @@ pub fn micro_version() -> u32 {
 #[doc(alias = "get_minor_version")]
 pub fn minor_version() -> u32 {
     assert_initialized_main_thread!();
-    unsafe { ffi::gtk_layer_get_minor_version() }
+    unsafe {
+        ffi::gtk_layer_get_minor_version()
+    }
 }
 
 /// NOTE: To get which monitor the surface is actually on, use
@@ -205,7 +209,9 @@ pub fn minor_version() -> u32 {
 #[doc(alias = "get_monitor")]
 pub fn monitor(window: &impl IsA<gtk::Window>) -> Option<gdk::Monitor> {
     assert_initialized_main_thread!();
-    unsafe { from_glib_none(ffi::gtk_layer_get_monitor(window.as_ref().to_glib_none().0)) }
+    unsafe {
+        from_glib_none(ffi::gtk_layer_get_monitor(window.as_ref().to_glib_none().0))
+    }
 }
 
 /// NOTE: this function does not return ownership of the string. Do not free the returned string.
@@ -224,9 +230,7 @@ pub fn monitor(window: &impl IsA<gtk::Window>) -> Option<gdk::Monitor> {
 pub fn namespace(window: &impl IsA<gtk::Window>) -> Option<glib::GString> {
     assert_initialized_main_thread!();
     unsafe {
-        from_glib_none(ffi::gtk_layer_get_namespace(
-            window.as_ref().to_glib_none().0,
-        ))
+        from_glib_none(ffi::gtk_layer_get_namespace(window.as_ref().to_glib_none().0))
     }
 }
 
@@ -242,7 +246,9 @@ pub fn namespace(window: &impl IsA<gtk::Window>) -> Option<glib::GString> {
 #[doc(alias = "get_protocol_version")]
 pub fn protocol_version() -> u32 {
     assert_initialized_main_thread!();
-    unsafe { ffi::gtk_layer_get_protocol_version() }
+    unsafe {
+        ffi::gtk_layer_get_protocol_version()
+    }
 }
 
 //#[cfg(any(feature = "v0_4", feature = "dox"))]
@@ -277,9 +283,7 @@ pub fn init_for_window(window: &impl IsA<gtk::Window>) {
 pub fn is_layer_window(window: &impl IsA<gtk::Window>) -> bool {
     assert_initialized_main_thread!();
     unsafe {
-        from_glib(ffi::gtk_layer_is_layer_window(
-            window.as_ref().to_glib_none().0,
-        ))
+        from_glib(ffi::gtk_layer_is_layer_window(window.as_ref().to_glib_none().0))
     }
 }
 
@@ -294,7 +298,9 @@ pub fn is_layer_window(window: &impl IsA<gtk::Window>) -> bool {
 #[doc(alias = "gtk_layer_is_supported")]
 pub fn is_supported() -> bool {
     assert_initialized_main_thread!();
-    unsafe { from_glib(ffi::gtk_layer_is_supported()) }
+    unsafe {
+        from_glib(ffi::gtk_layer_is_supported())
+    }
 }
 
 /// Set whether `window` should be anchored to `edge`.
@@ -312,11 +318,7 @@ pub fn is_supported() -> bool {
 pub fn set_anchor(window: &impl IsA<gtk::Window>, edge: Edge, anchor_to_edge: bool) {
     assert_initialized_main_thread!();
     unsafe {
-        ffi::gtk_layer_set_anchor(
-            window.as_ref().to_glib_none().0,
-            edge.into_glib(),
-            anchor_to_edge.into_glib(),
-        );
+        ffi::gtk_layer_set_anchor(window.as_ref().to_glib_none().0, edge.into_glib(), anchor_to_edge.into_glib());
     }
 }
 
@@ -352,10 +354,7 @@ pub fn set_exclusive_zone(window: &impl IsA<gtk::Window>, exclusive_zone: i32) {
 pub fn set_keyboard_interactivity(window: &impl IsA<gtk::Window>, interactivity: bool) {
     assert_initialized_main_thread!();
     unsafe {
-        ffi::gtk_layer_set_keyboard_interactivity(
-            window.as_ref().to_glib_none().0,
-            interactivity.into_glib(),
-        );
+        ffi::gtk_layer_set_keyboard_interactivity(window.as_ref().to_glib_none().0, interactivity.into_glib());
     }
 }
 
@@ -408,11 +407,7 @@ pub fn set_layer(window: &impl IsA<gtk::Window>, layer: Layer) {
 pub fn set_margin(window: &impl IsA<gtk::Window>, edge: Edge, margin_size: i32) {
     assert_initialized_main_thread!();
     unsafe {
-        ffi::gtk_layer_set_margin(
-            window.as_ref().to_glib_none().0,
-            edge.into_glib(),
-            margin_size,
-        );
+        ffi::gtk_layer_set_margin(window.as_ref().to_glib_none().0, edge.into_glib(), margin_size);
     }
 }
 
@@ -448,9 +443,6 @@ pub fn set_monitor(window: &impl IsA<gtk::Window>, monitor: &gdk::Monitor) {
 pub fn set_namespace(window: &impl IsA<gtk::Window>, name_space: &str) {
     assert_initialized_main_thread!();
     unsafe {
-        ffi::gtk_layer_set_namespace(
-            window.as_ref().to_glib_none().0,
-            name_space.to_glib_none().0,
-        );
+        ffi::gtk_layer_set_namespace(window.as_ref().to_glib_none().0, name_space.to_glib_none().0);
     }
 }
