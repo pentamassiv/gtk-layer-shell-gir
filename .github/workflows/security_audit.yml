@@ -13,13 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Change directory to check sys crate
-        run:  cd gtk-layer-shell/gtk-layer-shell-sys
       - uses: actions-rs/audit-check@v1
+        working-directory: ./gtk-layer-shell/gtk-layer-shell-sys
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Change directory to check sys crate
-        run:  cd ..
       - uses: actions-rs/audit-check@v1
+        working-directory: ./gtk-layer-shell
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
