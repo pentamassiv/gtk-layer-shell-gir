@@ -64,8 +64,8 @@ jobs:
           ls
           export PATH=$PATH:/github/home/.cargo/bin
           gir -o .
-          cargo build --features v0_6 --verbose
-          cargo test --features v0_6 --verbose
+          cargo build --verbose
+          cargo test --verbose
     - name: Build and test the wrapper crate
       working-directory: ./gtk-layer-shell/
       run: |
@@ -77,9 +77,9 @@ jobs:
           rustdoc-stripper -s -n
           rustdoc-stripper -g -o docs.md
           rm docs.md
-          cargo build --features v0_6 --verbose
-          cargo test --features v0_6 --verbose
-          cargo doc --features v0_6
+          cargo build --verbose
+          cargo test --verbose
+          cargo doc
     - name: Create Pull Request when code was committed to main
       if: ${{ github.event_name == 'schedule' }}
       uses: stefanzweifel/git-auto-commit-action@v4

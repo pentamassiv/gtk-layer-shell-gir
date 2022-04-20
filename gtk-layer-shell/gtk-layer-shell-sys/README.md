@@ -27,9 +27,9 @@ If you regenerate the binding, because you have a new version of the GtkLayerShe
 Now you can generate, build and test the bindings.
 ```bash
 cd gtk-layer-shell/gtk-layer-shell-sys
-gir -o .                       # Regenerate the bindings
-cargo build --features v0_6    # Build the created bindings
-cargo test --features v0_6     # Test the created bindings
+gir -o .       # Regenerate the bindings
+cargo build    # Build the created bindings
+cargo test     # Test the created bindings
 cd ..
 ```
 

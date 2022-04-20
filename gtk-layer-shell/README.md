@@ -15,8 +15,8 @@ Generating the wrapper yourself is not necessary to be able to use it. You can j
 Now that you have generated the bindings you will want to generate the safe wrapper.
 ```bash
 gir -o .
-cargo build --features v0_6
-cargo test --features v0_6
+cargo build
+cargo test
 ```
 There should not have been any errors.
 To make sure everything you need was created, run the following command.
@@ -30,7 +30,7 @@ gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
 cargo install rustdoc-stripper
 rustdoc-stripper -s -n
 rustdoc-stripper -g -o docs.md
-cargo doc --features v0_6
+cargo doc
 ```
 Congratulations, you've done it :-)
 
