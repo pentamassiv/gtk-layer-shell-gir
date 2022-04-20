@@ -30,7 +30,6 @@ gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
 cargo install rustdoc-stripper
 rustdoc-stripper -s -n
 rustdoc-stripper -g -o docs.md
-sed -i 's/crate::gtk::Window/gtk::Window/g' src/auto/functions.rs   # Hack to fix an error when building the docs
 cargo doc --features v0_6
 ```
 Congratulations, you've done it :-)

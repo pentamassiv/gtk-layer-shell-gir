@@ -17,5 +17,8 @@ macro_rules! skip_assert_initialized {
 
 mod auto;
 
+#[allow(unused_imports)]
+use gtk; // Required for the documentation to build without warnings
+
 pub use self::auto::functions::*;
 pub use auto::*;

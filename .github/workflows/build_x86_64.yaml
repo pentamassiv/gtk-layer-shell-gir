@@ -77,7 +77,6 @@ jobs:
           rustdoc-stripper -s -n
           rustdoc-stripper -g -o docs.md
           rm docs.md
-          sed -i 's/crate::gtk::Window/gtk::Window/g' src/auto/functions.rs
           cargo build --features v0_6 --verbose
           cargo test --features v0_6 --verbose
           cargo doc --features v0_6

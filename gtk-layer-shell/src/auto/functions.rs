@@ -262,7 +262,7 @@ pub fn protocol_version() -> u32 {
 /// Set the `window` up to be a layer surface once it is mapped. this must be called before
 /// the `window` is realized.
 /// ## `window`
-/// A [`gtk::Window`][gtk::Window] to be turned into a layer surface.
+/// A [`gtk::Window`][crate::gtk::Window] to be turned into a layer surface.
 #[doc(alias = "gtk_layer_init_for_window")]
 pub fn init_for_window(window: &impl IsA<gtk::Window>) {
     assert_initialized_main_thread!();
@@ -272,7 +272,7 @@ pub fn init_for_window(window: &impl IsA<gtk::Window>) {
 }
 
 /// ## `window`
-/// A [`gtk::Window`][gtk::Window] that may or may not have a layer surface.
+/// A [`gtk::Window`][crate::gtk::Window] that may or may not have a layer surface.
 ///
 /// # Returns
 ///
