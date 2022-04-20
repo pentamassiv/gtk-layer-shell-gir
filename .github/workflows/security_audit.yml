@@ -14,11 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      # Moves all files in sys dir to top-level dir
+      - run: cd $GITHUB_WORKSPACE && mv gtk-layer-shell/gtk-layer-shell-sys/* .
+      # Delete directories not to be audited
+      - run: cd $GITHUB_WORKSPACE && rm -rf ./gir ./gir-files
       - uses: actions-rs/audit-check@v1
-        working-directory: ./gtk-layer-shell/gtk-layer-shell-sys
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+      # Moves all files in subfolder to top-level dir
+      - run: cd $GITHUB_WORKSPACE && mv gtk-layer-shell/* .
       - uses: actions-rs/audit-check@v1
-        working-directory: ./gtk-layer-shell
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
