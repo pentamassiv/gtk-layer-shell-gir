@@ -22,6 +22,7 @@ ffi = { package = "gtk-layer-shell-sys", path = "./gtk-layer-shell-sys", version
 gio = "0.15.10"
 
 [features]
+default = ["v0_6"]
 v0_4 = ["ffi/v0_4"]
 v0_5 = ["ffi/v0_5", "v0_4"]
 v0_6 = ["ffi/v0_6", "v0_5"]
