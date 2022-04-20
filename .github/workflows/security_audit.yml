@@ -27,7 +27,7 @@ jobs:
       # Delete everything in the top-level dir except for the crates content
       - run: rm -rf ./gir ./gir-files ./src ./target ./tests ./build.rs ./Cargo.lock ./Cargo.toml ./Gir.toml ./README.md
       # Moves all files in sys dir to top-level dir
-      - run: mv gtk-layer-shell/gtk-layer-shell-sys/* .
+      - run: mv gtk-layer-shell-sys/* .
       # List files
       - run: ls
       - uses: actions-rs/audit-check@v1
