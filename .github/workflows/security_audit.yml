@@ -17,9 +17,11 @@ jobs:
       # List files
       - run: ls
       # Delete everything in the top-level dir except for the crates content
-      - run: rm -rf ./gir ./gir-files
+      - run: rm -rf ./gir ./gir-files README.md
       # Moves all files in subfolder to top-level dir
       - run: mv gtk-layer-shell/* .
+      # Delete now empty folder
+      - run: rm -rf ./gtk-layer-shell
       - run: ls
       - uses: actions-rs/audit-check@v1
         with:
