@@ -15,14 +15,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       # Delete everything in the top-level dir except for the crates content
-      - run: rm !(gtk-layer-shell)
+      - run: rm -f !(./gtk-layer-shell)
       # Moves all files in sys dir to top-level dir
       - run: mv gtk-layer-shell/gtk-layer-shell-sys/* .
       - uses: actions-rs/audit-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       # Delete everything in the top-level dir except for the crates content
-      - run: rm !(gtk-layer-shell)
+      - run: rm -f !(./gtk-layer-shell)
       # Moves all files in subfolder to top-level dir
       - run: mv gtk-layer-shell/* .
       - uses: actions-rs/audit-check@v1
