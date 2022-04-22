@@ -19,17 +19,17 @@ jobs:
       # Delete everything in the top-level dir except for the crates content
       - run: rm -rf ./gir ./gir-files README.md
       # Moves all files in subfolder to top-level dir
-      - run: mv gtk-layer-shell/* .
+      - run: mv gtk-layer-shell-sys/* .
       # Delete now empty folder
-      - run: rm -rf ./gtk-layer-shell
+      - run: rm -rf ./gtk-layer-shell-sys
       - run: ls
       - uses: actions-rs/audit-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      # Delete everything in the top-level dir except for the crates content
+      # Delete everything in the top-level dir from the sys crate
       - run: rm -rf ./gir ./gir-files ./src ./target ./tests ./build.rs ./Cargo.lock ./Cargo.toml ./Gir.toml ./README.md
-      # Moves all files in sys dir to top-level dir
-      - run: mv gtk-layer-shell-sys/* .
+      # Moves all files in wrapper dir to top-level dir
+      - run: mv gtk-layer-shell/* .
       # List files
       - run: ls
       - uses: actions-rs/audit-check@v1
