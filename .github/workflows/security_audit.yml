@@ -27,7 +27,7 @@ jobs:
       # Moves all files in wrapper dir to top-level dir
       - run: mv gtk-layer-shell/* .
       # Correct the path where to find the sys crate
-      - run: sed 's|package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys"|package = "gtk-layer-shell-sys", path = "./gtk-layer-shell-sys"|' Cargo.toml
+      - run: sed 's|package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys"|package = "gtk-layer-shell-sys"|' Cargo.toml
       # List files
       - run: ls
       # List files
