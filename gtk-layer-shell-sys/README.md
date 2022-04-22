@@ -7,7 +7,7 @@
 These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir).
 
 ## Usage
-These are the unsafe bindings. You most likely want to use the safe [wrapper](../gtk-layer-shell).
+These are the unsafe bindings. You most likely want to use the safe [wrapper](../gtk-layer-shell). If you are sure you want the unsafe bindings, you can use the features to select the version of gtk-layer-shell. Default currently is v0_6.
 
 ## Generating the bindings
 Generating the bindings yourself is not necessary to be able to use it. If you want to do it anyways, here are the steps you can follow to generate the bindings yourself.

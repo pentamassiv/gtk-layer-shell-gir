@@ -7,7 +7,7 @@
 This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir). The unsafe bindings can be found [here](../gtk-layer-shell-sys).
 
 ## Usage
-Have a look at the [simple example](examples/simple-example.rs) to see how the bindings can be used. It works analogous to the original.
+Have a look at the [simple example](examples/simple-example.rs) to see how the bindings can be used. It works analogous to the original. You can use the features to select the version of gtk-layer-shell. Currently v0_6 is the default.
 
 ## Generating the wrapper
 Generating the wrapper yourself is not necessary to be able to use it. You can just use the version published on crates.io. If you want to do it anyways, you need to start by [generating the unsafe bindings](../gtk-layer-shell-sys/README.md#generating-the-bindings). Follow the guide on how to do that and come back here.
