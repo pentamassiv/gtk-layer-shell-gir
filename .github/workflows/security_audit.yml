@@ -17,7 +17,7 @@ jobs:
       # List files
       - run: ls
       # Moves all files in subfolder of sys crate to top-level dir
-      - run: cp gtk-layer-shell-sys/* .
+      - run: cp -r gtk-layer-shell-sys/* .
       - run: ls
       - uses: actions-rs/audit-check@v1
         with:
