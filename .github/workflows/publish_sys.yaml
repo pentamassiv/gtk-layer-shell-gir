@@ -1,9 +1,6 @@
 name: Publish_sys
 
 on:
-  push:
-    branches:
-      - "publish_workflows"
   workflow_dispatch:
     inputs:
       sys_version:
