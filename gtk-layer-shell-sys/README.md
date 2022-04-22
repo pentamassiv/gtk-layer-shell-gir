@@ -1,13 +1,13 @@
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell-sys.svg)](https://crates.io/crates/gtk-layer-shell-sys)
 [![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.2.6/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.2.6)
-[![Build_x86](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86_64.yaml)
-[![Build_aarch64](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml/badge.svg)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pentamassiv/gtk-layer-shell-gir/Build_x86/main)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pentamassiv/gtk-layer-shell-gir/Build_aarch64/main)
 
 # gtk-layer-shell-sys
-These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../../gir-files/GtkLayerShell-0.1.gir).
+These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir).
 
 ## Usage
-These are the unsafe bindings. You most likely want to use the safe [wrapper](..).
+These are the unsafe bindings. You most likely want to use the safe [wrapper](../gtk-layer-shell).
 
 ## Generating the bindings
 Generating the bindings yourself is not necessary to be able to use it. If you want to do it anyways, here are the steps you can follow to generate the bindings yourself.
@@ -23,17 +23,17 @@ cd gir
 cargo install --path .
 cd ..
 ```
-If you regenerate the binding, because you have a new version of the GtkLayerShell gir file, copy it into the [gir files](../../gir-files) folder.
+If you regenerate the binding, because you have a new version of the GtkLayerShell gir file, copy it into the [gir files](../gir-files) folder.
 Now you can generate, build and test the bindings.
 ```bash
-cd gtk-layer-shell/gtk-layer-shell-sys
+cd gtk-layer-shell-sys
 gir -o .       # Regenerate the bindings
 cargo build    # Build the created bindings
 cargo test     # Test the created bindings
 cd ..
 ```
 
-There should not have been any errors. You should now continue and generate the [safe wrapper](../README.md#generating-the-wrapper).
+There should not have been any errors. You should now continue and generate the [safe wrapper](../gtk-layer-shell/README.md#generating-the-wrapper).
 If you want to learn more about gir, have a look at its [repo](https://github.com/gtk-rs/gir) or its [book](https://gtk-rs.org/gir/book/).
 
 ## Contributing

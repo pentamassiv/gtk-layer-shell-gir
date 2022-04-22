@@ -15,7 +15,7 @@ updates:
 
   # Maintain dependencies for cargo
   - package-ecosystem: "cargo"
-    directory: "/gtk-layer-shell/gtk-layer-shell-sys"
+    directory: "/gtk-layer-shell-sys"
     schedule:
       interval: "daily"
 

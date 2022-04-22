@@ -36,7 +36,7 @@ jobs:
           ~/.cargo/registry/cache/
           ~/.cargo/git/db/
           gtk-layer-shell/target/
-          gtk-layer-shell/gtk-layer-shell-sys/target/
+          gtk-layer-shell-sys/target/
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
 
 
@@ -60,7 +60,7 @@ jobs:
           export PATH=$PATH:/github/home/.cargo/bin
           cargo install --path .
     - name: Build and test the sys crate
-      working-directory: ./gtk-layer-shell/gtk-layer-shell-sys
+      working-directory: ./gtk-layer-shell-sys
       run: |
           ls
           export PATH=$PATH:/github/home/.cargo/bin
