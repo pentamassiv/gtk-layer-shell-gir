@@ -1,0 +1,36 @@
+name: Publish_sys
+
+on:
+  workflow_dispatch:
+    inputs:
+      sys_version:
+        description: 'New version of the sys crate'     
+        required: true
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  publish:
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v3
+      - name: Get the version number
+        id: previous_version
+        run: |
+            echo ::set-output name=PREVIOUS_VERSION::$(grep -o -m 1 -P '(?<=version = ").*(?=")' ./gtk-layer-shell-sys/Cargo.toml)
+            echo "Previous version: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
+            echo "New version: ${{ github.event.inputs.sys_version }}"
+      - name: Bump version number in sys Cargo.toml
+        run: |
+          sed '0,/version = "${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"/{s//version = "${{ github.event.inputs.sys_version }}"/}' ./gtk-layer-shell-sys/Cargo.toml
+      - name: Bump version of badge in sys README.md
+        run: |
+          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
+          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
+      - name: Bump version of badge in repo README.md
+        run: |
+          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
+          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
+      - name: Publish on crates.io
+        run: cargo publish --dry-run --token ${{ secrets.CRATES_TOKEN }}
