@@ -20,6 +20,8 @@ jobs:
         id: previous_version
         run: |
             echo ::set-output name=PREVIOUS_VERSION::$(grep -o -m 1 -P '(?<=version = ").*(?=")' ./gtk-layer-shell-sys/Cargo.toml)
+      - name: Output the version numbers
+        run: |
             echo "Previous version: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
             echo "New version: ${{ github.event.inputs.sys_version }}"
       - name: Bump version number in sys Cargo.toml
@@ -34,4 +36,5 @@ jobs:
           sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
           sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
       - name: Publish on crates.io
+        working-directory: ./gtk-layer-shell-sys
         run: cargo publish --dry-run --token ${{ secrets.CRATES_TOKEN }}
