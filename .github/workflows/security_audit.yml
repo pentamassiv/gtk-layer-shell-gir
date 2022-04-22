@@ -30,6 +30,10 @@ jobs:
       - run: sed 's|package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys"|package = "gtk-layer-shell-sys", path = "./gtk-layer-shell-sys"|' Cargo.toml
       # List files
       - run: ls
+      # List files
+      - run: ls gtk-layer-shell 
+      # List files
+      - run: ls gtk-layer-shell-sys 
       - uses: actions-rs/audit-check@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
