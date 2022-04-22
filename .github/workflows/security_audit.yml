@@ -16,12 +16,8 @@ jobs:
       - uses: actions/checkout@v3
       # List files
       - run: ls
-      # Delete everything in the top-level dir except for the crates content
-      - run: rm -rf ./gir ./gir-files README.md
-      # Moves all files in subfolder to top-level dir
-      - run: mv gtk-layer-shell-sys/* .
-      # Delete now empty folder
-      - run: rm -rf ./gtk-layer-shell-sys
+      # Moves all files in subfolder of sys crate to top-level dir
+      - run: cp gtk-layer-shell-sys/* .
       - run: ls
       - uses: actions-rs/audit-check@v1
         with:
@@ -30,6 +26,8 @@ jobs:
       - run: rm -rf ./gir ./gir-files ./src ./target ./tests ./build.rs ./Cargo.lock ./Cargo.toml ./Gir.toml ./README.md
       # Moves all files in wrapper dir to top-level dir
       - run: mv gtk-layer-shell/* .
+      # Correct the path where to find the sys crate
+      - run: sed 's|package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys"|package = "gtk-layer-shell-sys", path = "./gtk-layer-shell-sys"|' Cargo.toml
       # List files
       - run: ls
       - uses: actions-rs/audit-check@v1
