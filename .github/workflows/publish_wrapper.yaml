@@ -1,10 +1,10 @@
-name: Publish_sys
+name: Publish_wrapper
 
 on:
   workflow_dispatch:
     inputs:
-      sys_version:
-        description: 'New version of the sys crate'     
+      wrapper_version:
+        description: 'New version of the wrapper crate'     
         required: true
 
 env:
@@ -35,26 +35,26 @@ jobs:
       - name: Get the version number
         id: previous_version
         run: |
-            echo ::set-output name=PREVIOUS_VERSION::$(grep -o -m 1 -P '(?<=version = ").*(?=")' ./gtk-layer-shell-sys/Cargo.toml)
+            echo ::set-output name=PREVIOUS_VERSION::$(grep -o -m 1 -P '(?<=version = ").*(?=")' ./gtk-layer-shell/Cargo.toml)
       - name: Output the version numbers
         run: |
             echo "Previous version: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
             echo "New version: ${{ github.event.inputs.sys_version }}"
-      - name: Bump version number in sys Cargo.toml
+      - name: Bump version number in Cargo.toml of the wrapper
         run: |
-          sed '0,/version = "${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"/{s//version = "${{ github.event.inputs.sys_version }}"/}' ./gtk-layer-shell-sys/Cargo.toml
-      - name: Bump version of badge in sys README.md
+          sed '0,/version = "${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"/{s//version = "${{ github.event.inputs.sys_version }}"/}' ./gtk-layer-shell/Cargo.toml
+      - name: Bump version of badge in wrapper README.md
         run: |
-          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
-          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
+          sed '0,/gtk-layer-shell\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell/README.md
+          sed '0,/gtk-layer-shell\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell/README.md
       - name: Bump version of badge in repo README.md
         run: |
-          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
-          sed '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
+          sed '0,/gtk-layer-shell\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell\/${{ github.event.inputs.sys_version }}/}' ./README.md
+          sed '0,/gtk-layer-shell\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell\/${{ github.event.inputs.sys_version }}/}' ./README.md
       - name: Commit the changes to repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Bump version number of sys crate and publish it
+          commit_message: Bump version number of wrapper crate and publish it
       - name: Publish on crates.io
-        working-directory: ./gtk-layer-shell-sys
+        working-directory: ./gtk-layer-shell
         run: cargo publish --token ${{ secrets.CRATES_TOKEN }}
