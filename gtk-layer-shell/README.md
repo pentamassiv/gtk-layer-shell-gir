@@ -1,5 +1,5 @@
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell.svg)](https://crates.io/crates/gtk-layer-shell)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.2.6/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.2.6)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.2.5/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.2.5)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pentamassiv/gtk-layer-shell-gir/Build_x86/main)
 ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pentamassiv/gtk-layer-shell-gir/Build_aarch64/main)
 

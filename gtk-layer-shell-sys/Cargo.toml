@@ -1,6 +1,6 @@
 [package]
 name = "gtk-layer-shell-sys"
-version = "0.2.7"
+version = "0.2.6"
 authors = ["pentamassiv <pentamassiv@posteo.de>"]
 license = "MIT"
 description = "Unsave gir-generated FFI bindings for gtk-layer-shell"
