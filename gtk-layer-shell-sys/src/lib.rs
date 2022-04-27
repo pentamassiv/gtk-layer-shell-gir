@@ -82,6 +82,9 @@ extern "C" {
     #[cfg(any(feature = "v0_6", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
     pub fn gtk_layer_get_protocol_version() -> c_uint;
+    #[cfg(any(feature = "v0_4", feature = "dox"))]
+    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+    pub fn gtk_layer_get_zwlr_layer_surface_v1(window: *mut gtk::GtkWindow) -> *mut zwlr_layer_surface_v1;
     pub fn gtk_layer_init_for_window(window: *mut gtk::GtkWindow);
     #[cfg(any(feature = "v0_5", feature = "dox"))]
     #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
