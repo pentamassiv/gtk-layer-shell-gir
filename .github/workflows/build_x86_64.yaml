@@ -86,19 +86,21 @@ jobs:
           cargo doc
     - name: Check if only the version files were changed
       run: |
-            NOT_ONLY_VERSION_CHANGE=$([ "git diff --name-only" != "printf 'gtk-layer-shell-sys/src/auto/versions.txt\ngtk-layer-shell/src/auto/versions.txt\n'" ]) &&
-            echo "::set-output name=NOT_ONLY_VERSION_CHANGE::$NOT_ONLY_VERSION_CHANGE"
+        VAR1=$(git diff --name-only)
+        VAR2="gtk-layer-shell-sys/src/auto/versions.txt\ngtk-layer-shell/src/auto/versions.txt\n"
 
-    - name: Print the result of the comparison of strings
-      run: |
-        if ${{steps.main.outputs.NOT_ONLY_VERSION_CHANGE}}; then
-          echo "NOT ONLY the versions were changed"
+        if [ "$VAR1" = "$VAR2" ]; then
+            OUTPUT="true"
         else
-          echo "ONLY the versions were changed"
+            OUTPUT="false"
         fi
+        echo "::set-output name=ONLY_VERSION_CHANGE::$OUTPUT"
+    - name: Check if only the version files were changed
+      run: echo ${{steps.main.outputs.ONLY_VERSION_CHANGE}}
+
     - name: Create Pull Request when code was committed to main
       if: |
-        ${{steps.main.outputs.NOT_ONLY_VERSION_CHANGE}}
+        ${{steps.main.outputs.ONLY_VERSION_CHANGE == 'false'}}
           && ${{ github.event_name == 'schedule' }}
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
