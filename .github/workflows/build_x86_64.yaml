@@ -91,8 +91,7 @@ jobs:
       run: |
             echo "Number of changed files other than the versions.txt files: ${{ steps.changed_files.outputs.PREVIOUS_VERSION }}"
     - name: Create Pull Request when code was committed to main
-      if: |
-        ${{ github.event_name == 'schedule' }}
+      if: ${{ github.event_name == 'schedule' }}
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Github Actions updated the version
