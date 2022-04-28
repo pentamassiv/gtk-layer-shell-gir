@@ -83,8 +83,17 @@ jobs:
           cargo build --verbose
           cargo test --verbose
           cargo doc
+    - name: Check if only the version files were changed
+      run: |
+            NOT_ONLY_VERSION_CHANGE=$([ "git diff --name-only" != "printf 'gtk-layer-shell-sys/src/auto/versions.txt\ngtk-layer-shell/src/auto/versions.txt\n'" ]) &&
+            echo "::set-output name=NOT_ONLY_VERSION_CHANGE::$NOT_ONLY_VERSION_CHANGE"
+
+    - name: Print the result of the comparison of strings
+      run: echo ${{steps.main.outputs.NOT_ONLY_VERSION_CHANGE}}
     - name: Create Pull Request when code was committed to main
-      if: ${{ github.event_name == 'schedule' }}
+      if: |
+        ${{steps.main.outputs.NOT_ONLY_VERSION_CHANGE}}
+          && ${{ github.event_name == 'schedule' }}
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Github Actions updated the version
