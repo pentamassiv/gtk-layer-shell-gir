@@ -10,6 +10,7 @@ on:
   push:
     branches:
       - "main"
+      - "ignore_commits_only_changing_version"
 
 env:
   CARGO_TERM_COLOR: always
