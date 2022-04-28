@@ -87,7 +87,8 @@ jobs:
     - name: Count the number of files other than the versions.txt files were changed
       run: echo ::set-output name=PREVIOUS_VERSION::$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' | wc -l)
     - name: Print the number of changed files other than the versions.txt files
-      run: echo "Number of changed files other than the versions.txt files: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
+      run: |
+            echo "Number of changed files other than the versions.txt files: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
     - name: Create Pull Request when code was committed to main
       if: |
         ${{steps.main.outputs.PREVIOUS_VERSION > 0}}
