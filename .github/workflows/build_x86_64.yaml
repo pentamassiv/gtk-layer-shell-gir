@@ -91,7 +91,7 @@ jobs:
             echo "Number of changed files other than the versions.txt files: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
     - name: Create Pull Request when code was committed to main
       if: |
-        ${{steps.main.outputs.PREVIOUS_VERSION > 0}}
+        ${{steps.main.outputs.PREVIOUS_VERSION -gt 0}}
           && ${{ github.event_name == 'schedule' }}
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
