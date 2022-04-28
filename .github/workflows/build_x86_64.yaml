@@ -90,7 +90,12 @@ jobs:
             echo "::set-output name=NOT_ONLY_VERSION_CHANGE::$NOT_ONLY_VERSION_CHANGE"
 
     - name: Print the result of the comparison of strings
-      run: echo ${{steps.main.outputs.NOT_ONLY_VERSION_CHANGE}}
+      run: |
+        if ${{steps.main.outputs.NOT_ONLY_VERSION_CHANGE}}; then
+          echo "NOT ONLY the versions were changed"
+        else
+          echo "ONLY the versions were changed"
+        fi
     - name: Create Pull Request when code was committed to main
       if: |
         ${{steps.main.outputs.NOT_ONLY_VERSION_CHANGE}}
