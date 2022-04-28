@@ -85,7 +85,9 @@ jobs:
           cargo test --verbose
           cargo doc
     - name: Count the number of files other than the versions.txt files were changed
-      run: echo ::set-output name=PREVIOUS_VERSION::$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' | wc -l)
+      run: |
+            OUTPUT=$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' | wc -l) &&
+            echo "::set-output name=PREVIOUS_VERSION::$OUTPUT"
     - name: Print the number of changed files other than the versions.txt files
       run: |
             echo "Number of changed files other than the versions.txt files: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
