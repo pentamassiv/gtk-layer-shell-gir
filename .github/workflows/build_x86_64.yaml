@@ -10,7 +10,6 @@ on:
   push:
     branches:
       - "main"
-      - "ignore_commits_only_changing_version"
 
 env:
   CARGO_TERM_COLOR: always
@@ -84,12 +83,9 @@ jobs:
           cargo build --verbose
           cargo test --verbose
           cargo doc
-    - name: Count the number of files other than the versions.txt files were changed
+    - name: Count the number of files other than the versions.txt files, which were changed
       id: changed_files
       run: echo ::set-output name=PREVIOUS_VERSION::$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' | wc -l)
-    - name: Print the number of changed files other than the versions.txt files
-      run: |
-            echo "Number of changed files other than the versions.txt files: ${{ steps.changed_files.outputs.PREVIOUS_VERSION }}"
     - name: Create Pull Request when code was committed to main
       if: steps.changed_files.outputs.PREVIOUS_VERSION != '0' && github.event_name == 'schedule'
       uses: stefanzweifel/git-auto-commit-action@v4
