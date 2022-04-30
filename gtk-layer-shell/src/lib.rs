@@ -24,3 +24,6 @@ mod auto;
 
 pub use auto::functions::*;
 pub use auto::*;
+
+mod manual;
+pub use manual::*;
