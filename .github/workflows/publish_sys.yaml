@@ -42,15 +42,17 @@ jobs:
             echo "New version: ${{ github.event.inputs.sys_version }}"
       - name: Bump version number in sys Cargo.toml
         run: |
-          sed -i '0,/version = "${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"/{s//version = "${{ github.event.inputs.sys_version }}"/}' ./gtk-layer-shell-sys/Cargo.toml
+            sed -i '0,/version = "${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"/{s//version = "${{ github.event.inputs.sys_version }}"/}' ./gtk-layer-shell-sys/Cargo.toml
       - name: Bump version of badge in sys README.md
         run: |
-          sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
-          sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
+            sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
+            sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./gtk-layer-shell-sys/README.md
       - name: Bump version of badge in repo README.md
         run: |
-          sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
-          sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
+            sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
+            sed -i '0,/gtk-layer-shell-sys\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//gtk-layer-shell-sys\/${{ github.event.inputs.sys_version }}/}' ./README.md
+      - name: Workaround needed due to new git version
+        run:  git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Commit the changes to repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
