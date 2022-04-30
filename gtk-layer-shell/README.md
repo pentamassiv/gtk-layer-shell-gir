@@ -37,6 +37,17 @@ Congratulations, you've done it :-)
 
 If you want to learn more about gir, have a look at its [repo](https://github.com/gtk-rs/gir) or its [book](https://gtk-rs.org/gir/book/).
 
+## Changelog
+
+### 0.3.0
+If you come from a previous version, there is no need for you to do anything if you use version v0_6 of the C library. If you use an older version, you need to deactivate the default features and use the feature matching the version you are using.
+- Docs are properly added and it builds on docs.rs
+- No more manual edits to generated files of this crate needed
+- Updated dependencies
+- gtk_layer_get_zwlr_layer_surface_v1 function is no longer ignored but properly generated and can be used in the sys and wrapper crate
+- The default version of the C library is now v0_6. Turn off the default feature and select the feature you need, if you use an older version
+- Added workflows to automate updates so I don't need to actively do much :-)
+
 ## Contributing
 Pull requests are very welcome :)
 
