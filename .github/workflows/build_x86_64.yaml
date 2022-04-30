@@ -82,8 +82,11 @@ jobs:
           cargo build --verbose
           cargo test --verbose
           cargo doc
+    - name: Count the number of files other than the versions.txt files, which were changed
+      id: changed_files
+      run: echo ::set-output name=PREVIOUS_VERSION::$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' | wc -l)
     - name: Create Pull Request when code was committed to main
-      if: ${{ github.event_name == 'schedule' }}
+      if: steps.changed_files.outputs.PREVIOUS_VERSION != '0' && github.event_name == 'schedule'
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Github Actions updated the version
