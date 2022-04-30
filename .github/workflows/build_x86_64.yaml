@@ -79,7 +79,6 @@ jobs:
           cargo install rustdoc-stripper
           rustdoc-stripper -s -n
           rustdoc-stripper -g -o docs.md
-          rm docs.md
           cargo build --verbose
           cargo test --verbose
           cargo doc
