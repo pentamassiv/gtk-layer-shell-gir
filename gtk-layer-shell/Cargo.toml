@@ -5,6 +5,7 @@ authors = ["pentamassiv <pentamassiv@posteo.de>"]
 license = "MIT"
 description = "Save gir-generated wrapper for gtk-layer-shell"
 repository = "https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell"
+documentation = "https://docs.rs/gtk-layer-shell/"
 keywords = ["gtk", "gtk-layer-shell", "wayland", "gir", "wrapper"]
 categories = ["api-bindings", "gui"]
 edition = "2021"
