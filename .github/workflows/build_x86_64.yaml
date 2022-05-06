@@ -16,14 +16,12 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-    container:
-      image: ubuntu:devel
+    runs-on: ubuntu-jammy
     steps:
     - name: Update system
-      run: apt-get update -q -y && apt-get upgrade -y
+      run: sudo apt-get update -q -y && sudo apt-get upgrade -y
     - name: Install git, GTK and Rust libraries
-      run: apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
+      run: sudo apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
     - uses: actions/checkout@v3
       with:
         submodules: 'true'
