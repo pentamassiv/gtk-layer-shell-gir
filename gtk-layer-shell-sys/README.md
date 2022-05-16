@@ -6,7 +6,7 @@
 ![dependabot status](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
 
 # gtk-layer-shell-sys
-These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir).
+These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir). Unfortunately this crate is GTK3 only because upstream does not yet support GTK4 (https://github.com/wmww/gtk-layer-shell/issues/37).
 
 ## Usage
 These are the unsafe bindings. You most likely want to use the safe [wrapper](../gtk-layer-shell). If you are sure you want the unsafe bindings, you can use the features to select the version of gtk-layer-shell. Default currently is v0_6.
