@@ -10,7 +10,7 @@
 
 
 # gtk-layer-shell
-This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](gir-files/GtkLayerShell-0.1.gir). For details on how to use it or how to generate the code yourself, have a look at the crate's [README](gtk-layer-shell). The unsafe bindings can be found in this [folder](gtk-layer-shell-sys).
+This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](gir-files/GtkLayerShell-0.1.gir). For details on how to use it or how to generate the code yourself, have a look at the crate's [README](gtk-layer-shell). The unsafe bindings can be found in this [folder](gtk-layer-shell-sys). Unfortunately this crate is GTK3 only because upstream does not yet support GTK4 (https://github.com/wmww/gtk-layer-shell/issues/37).
 
 ## Contributing
 Pull requests are very welcome :)
