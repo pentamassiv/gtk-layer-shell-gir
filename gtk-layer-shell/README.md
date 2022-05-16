@@ -6,7 +6,7 @@
 ![dependabot status](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
 
 # gtk-layer-shell
-This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir). The unsafe bindings can be found [here](../gtk-layer-shell-sys).
+This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](../gir-files/GtkLayerShell-0.1.gir). The unsafe bindings can be found [here](../gtk-layer-shell-sys). Unfortunately this crate is GTK3 only because upstream does not yet support GTK4 (https://github.com/wmww/gtk-layer-shell/issues/37).
 
 ## Usage
 Have a look at the [simple example](examples/simple-example.rs) to see how the bindings can be used. It works analogous to the original. You can use the features to select the version of gtk-layer-shell. Currently v0_6 is the default.
