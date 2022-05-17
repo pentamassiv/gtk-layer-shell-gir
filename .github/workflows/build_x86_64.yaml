@@ -16,7 +16,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-jammy
+    runs-on: ubuntu-22.04
     steps:
     - name: Update system
       run: sudo apt-get update -q -y && sudo apt-get upgrade -y
