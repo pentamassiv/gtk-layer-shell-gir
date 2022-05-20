@@ -72,7 +72,7 @@ jobs:
           export PATH=$PATH:/github/home/.cargo/bin
           gir -o .
           gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
-          cargo install rustdoc-stripper
+          cargo install rustdoc-stripper --force
           rustdoc-stripper -s -n
           rustdoc-stripper -g -o docs.md
           cargo build --verbose
