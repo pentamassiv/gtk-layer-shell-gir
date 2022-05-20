@@ -56,7 +56,7 @@ jobs:
       run: |
           ls
           export PATH=$PATH:/github/home/.cargo/bin
-          cargo install --path .
+          cargo install --force --path .
     - name: Build and test the sys crate
       working-directory: ./gtk-layer-shell-sys
       run: |
