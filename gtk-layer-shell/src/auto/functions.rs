@@ -255,7 +255,7 @@ pub fn protocol_version() -> u32 {
 //#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
 //#[doc(alias = "gtk_layer_get_zwlr_layer_surface_v1")]
 //#[doc(alias = "get_zwlr_layer_surface_v1")]
-//pub fn zwlr_layer_surface_v1(window: &impl IsA<gtk::Window>) -> /*Unimplemented*/Option<Fundamental: Pointer> {
+//pub fn zwlr_layer_surface_v1(window: &impl IsA<gtk::Window>) -> /*Unimplemented*/Option<Basic: Pointer> {
 //    unsafe { TODO: call ffi:gtk_layer_get_zwlr_layer_surface_v1() }
 //}
 
