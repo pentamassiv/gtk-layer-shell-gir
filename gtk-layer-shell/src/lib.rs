@@ -1,4 +1,5 @@
 #![cfg_attr(feature = "dox", feature(doc_cfg))]
+#![deny(warnings)]
 
 macro_rules! assert_initialized_main_thread {
     () => {
