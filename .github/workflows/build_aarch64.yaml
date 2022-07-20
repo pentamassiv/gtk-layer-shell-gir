@@ -1,24 +1,16 @@
-name: Build_aarch64
+name: "Build aarch64"
 
 on:
-  workflow_dispatch:
-  workflow_run:
-    workflows: ["Build_x86"]
-    types:
-      - completed
-
-env:
-  CARGO_TERM_COLOR: always
+  workflow_call:
 
 jobs:
   build-for-aarch64:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          submodules: 'true'
+          submodules: "true"
 
       - uses: actions/cache@v3
         with:
@@ -52,3 +44,4 @@ jobs:
             cd ../gtk-layer-shell
             cargo build --verbose
             cargo test --verbose
+            cargo build --example simple-example

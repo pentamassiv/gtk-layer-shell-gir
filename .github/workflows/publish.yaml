@@ -1,0 +1,81 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      crate_type:
+        type: choice
+        description: Which crate to publish?
+        options:
+          - sys
+          - wrapper
+        required: true
+      version:
+        description: "New version of the crate"
+        required: true
+  push:
+    paths:
+      - "README.md"
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+    #container:
+    #  image: ubuntu:devel
+    steps:
+      - name: Update system
+        run: sudo apt-get update -q -y && sudo apt-get upgrade -y
+      - name: Install git, GTK and Rust libraries
+        run: sudo apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
+      - name: Checkout the code
+        uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            gtk-layer-shell/target/
+            gtk-layer-shell-sys/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+      - name: "Set the path"
+        run: |
+          if [[ ${{ github.event.inputs.crate_type }} == 'sys' ]]; then
+            echo "CRATE_PATH=gtk-layer-shell-sys" >> "$GITHUB_ENV"
+          elif [[ ${{ github.event.inputs.crate_type }} == 'wrapper' ]]; then
+            echo "CRATE_PATH=gtk-layer-shell" >> "$GITHUB_ENV"
+          else
+            exit 1
+          fi
+      - name: Get the version number
+        id: previous_version
+        run: |
+          echo ::set-output name=PREVIOUS_VERSION::$(grep -o -m 1 -P '(?<=version = ").*(?=")' ./${{ env.CRATE_PATH }}/Cargo.toml)
+      - name: Output the version numbers
+        run: |
+          echo "Previous version: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"
+          echo "New version: ${{ github.event.inputs.version }}"
+      - name: Bump version number in Cargo.toml
+        run: |
+          sed -i '0,/version = "${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"/{s//version = "${{ github.event.inputs.version }}"/}' ./${{ env.CRATE_PATH }}/Cargo.toml
+      - name: Bump version of badge in README.md
+        run: |
+          sed -i '0,/${{ env.CRATE_PATH }}\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//${{ env.CRATE_PATH }}\/${{ github.event.inputs.version }}/}' ./${{ env.CRATE_PATH }}/README.md
+          sed -i '0,/${{ env.CRATE_PATH }}\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//${{ env.CRATE_PATH }}\/${{ github.event.inputs.version }}/}' ./${{ env.CRATE_PATH }}/README.md
+      - name: Bump version of badge in repo README.md
+        run: |
+          sed -i '0,/${{ env.CRATE_PATH }}\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//${{ env.CRATE_PATH }}\/${{ github.event.inputs.version }}/}' ./README.md
+          sed -i '0,/${{ env.CRATE_PATH }}\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//${{ env.CRATE_PATH }}\/${{ github.event.inputs.version }}/}' ./README.md
+      - name: Workaround needed due to new git version
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      - name: Commit the changes to repo
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Bump version number of ${{ github.event.inputs.crate_type }} crate and publish it
+      - name: Publish on crates.io
+        working-directory: ./${{ env.CRATE_PATH }}
+        run: cargo publish --token ${{ secrets.CRATES_TOKEN }}

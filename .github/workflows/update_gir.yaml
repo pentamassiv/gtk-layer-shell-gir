@@ -1,0 +1,25 @@
+name: "Update gir"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * *"
+  push:
+    paths:
+      - "README.md"
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: ./.github/workflows/composite/install_deps/action.yml
+      - name: Update gir submodule
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git submodule update --remote
+      - uses: ./.github/workflows/composite/build_test_commit/action.yml
+        with:
+          commit_message: Automatically updated the version of gir

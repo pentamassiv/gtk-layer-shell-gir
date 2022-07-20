@@ -1,0 +1,31 @@
+name: "Update gir files"
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+  push:
+    paths:
+      - "README.md"
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: ./.github/workflows/composite/install_deps/action.yml
+      - name: Copy GtkLayerShell.gir file to root folder to save it from deletion
+        run: mv ./gir-files/GtkLayerShell-0.1.gir ./GtkLayerShell-0.1.gir
+      - name: Clone gir-files repo to get the newest gir files
+        run: |
+          rm -rf ./gir-files
+          git clone --depth 1 https://github.com/gtk-rs/gir-files.git
+          rm -rf ./gir-files/.github
+          rm ./gir-files/.gitignore
+      - name: Put back the GtkLayerShell.gir file to gir-files folder
+        run: mv ./GtkLayerShell-0.1.gir ./gir-files/GtkLayerShell-0.1.gir
+      - uses: ./.github/workflows/composite/build_test_commit/action.yml
+        with:
+          commit_message: Automatically updated the version of gir

@@ -1,0 +1,20 @@
+name: "Check the code"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: ./.github/workflows/composite/install_deps/action.yml
+      - uses: ./.github/workflows/composite/build_test_commit/action.yml
