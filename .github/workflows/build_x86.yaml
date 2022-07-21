@@ -16,5 +16,8 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     steps:
-      - uses: ./.github/workflows/composite/install_deps/action.yml
-      - uses: ./.github/workflows/composite/build_test_commit/action.yml
+      - uses: actions/checkout@v3
+        with:
+          submodules: "true"
+      - uses: ./.github/actions/install_deps
+      - uses: ./.github/actions/build_test_commit

@@ -1,0 +1,48 @@
+name: "Build, test, commit"
+description: "Builds the code, runs the tests and commits the changes"
+inputs:
+  commit_message:
+    description: "The commit message that will be used"
+    required: false
+    type: string
+
+runs:
+  using: "composite"
+  steps:
+    - name: Build and test the sys crate
+      working-directory: ./gtk-layer-shell-sys
+      shell: bash
+      run: |
+        ls
+        export PATH=$PATH:/github/home/.cargo/bin
+        gir -o .
+        cargo build --verbose
+        cargo test --verbose
+    - name: Build and test the wrapper crate
+      shell: bash
+      working-directory: ./gtk-layer-shell/
+      run: |
+        ls
+        export PATH=$PATH:/github/home/.cargo/bin
+        gir -o .
+        gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
+        cargo install rustdoc-stripper --force
+        rustdoc-stripper -s -n
+        rustdoc-stripper -g -o docs.md
+        cargo build --verbose
+        cargo test --verbose
+        cargo doc
+    - name: Build the example
+      working-directory: ./gtk-layer-shell/
+      shell: bash
+      run: cargo build --example simple-example
+    - name: Count the number of files other than the versions.txt files, which were changed
+      id: changed_files
+      shell: bash
+      if: ${{ inputs.commit_message != '' }}
+      run: echo ::set-output name=NO_CHANGED_FILES::$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' ':(exclude)gir' | wc -l)
+    - name: Commit code changes to main
+      if: inputs.commit_message != '' && steps.changed_files.outputs.NO_CHANGED_FILES != '0'
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: ${{ inputs.commit_message }}

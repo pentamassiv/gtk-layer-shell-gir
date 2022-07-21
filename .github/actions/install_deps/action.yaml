@@ -1,15 +1,12 @@
-name: 'Install_deps'
-description: 'Installs the dependencies, checks out the code and sets up caching'
+name: "Install_deps"
+description: "Installs the dependencies, checks out the code and sets up caching"
 
 runs:
   using: "composite"
   steps:
     - name: Install git, GTK and Rust libraries
+      shell: bash
       run: sudo apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
-    - uses: actions/checkout@v3
-      with:
-        submodules: 'true'
-
     - uses: actions/cache@v3
       with:
         path: |
