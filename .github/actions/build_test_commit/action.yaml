@@ -15,20 +15,39 @@ runs:
       run: |
         ls
         export PATH=$PATH:/github/home/.cargo/bin
-        gir -o .
+        # Test if there is any output to the gir command
+        if [[ $(gir -o . |& wc -l) -ne 0 ]]; then 
+          echo "gir -o failed"
+          exit 1
+        fi
+        cargo update
         cargo build --verbose
         cargo test --verbose
+    # Exit with an error if there is any output of the gir commands, because then there might be some wrongly generated code or errors
     - name: Build and test the wrapper crate
       shell: bash
       working-directory: ./gtk-layer-shell/
       run: |
         ls
         export PATH=$PATH:/github/home/.cargo/bin
-        gir -o .
-        gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
+        if [[ $(gir -o . |& wc -l) -ne 0 ]]; then
+          echo "gir -o failed"
+          exit 1
+        fi
+        if [[ $(gir -o . -m not_bound |& wc -l) -ne 0 ]]; then
+          echo "gir not_bound failed"
+          exit 1
+        fi
+        # Generating the docs creates a warning. The fix has been upstreamed but until there is a new release of gtk-layer-shell, there will be two warnings
+        # Once the new version is released, this comparison can be changed to 0 instead of 2.
+        if [[ $(gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc |& wc -l) -ne 2 ]]; then
+          echo "gir docs failed"
+          exit 1
+        fi
         cargo install rustdoc-stripper --force
         rustdoc-stripper -s -n
         rustdoc-stripper -g -o docs.md
+        cargo update
         cargo build --verbose
         cargo test --verbose
         cargo doc
