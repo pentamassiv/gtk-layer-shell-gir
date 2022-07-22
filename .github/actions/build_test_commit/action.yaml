@@ -16,7 +16,8 @@ runs:
         ls
         export PATH=$PATH:/github/home/.cargo/bin
         # Test if there is any output to the gir command
-        if [[ $(gir -o . | head -c1 | wc -c) -ne 0 ]]; then 
+        if [[ $(gir -o . |& head -c1 | wc -c) -ne 0 ]]; then 
+          echo "gir -o failed"
           exit 1
         fi
         cargo update
@@ -29,14 +30,16 @@ runs:
       run: |
         ls
         export PATH=$PATH:/github/home/.cargo/bin
-        if [[ $(gir -o . | head -c1 | wc -c) -ne 0 ]]; then
+        if [[ $(gir -o . |& head -c1 | wc -c) -ne 0 ]]; then
+          echo "gir -o failed"
           exit 1
         fi
-        if [[ $(gir -o . -m not_bound | head -c1 | wc -c) -ne 0 ]]; then
+        if [[ $(gir -o . -m not_bound |& head -c1 | wc -c) -ne 0 ]]; then
+          echo "gir not_bound failed"
           exit 1
         fi
-        gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
-        if [[ $(gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc | head -c1 | wc -c) -ne 0 ]]; then
+        if [[ $(gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc |& head -c1 | wc -c) -ne 0 ]]; then
+          echo "gir docs failed"
           exit 1
         fi
         cargo install rustdoc-stripper --force
