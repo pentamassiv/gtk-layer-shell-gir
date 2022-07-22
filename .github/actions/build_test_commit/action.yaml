@@ -16,7 +16,7 @@ runs:
         ls
         export PATH=$PATH:/github/home/.cargo/bin
         # Test if there is any output to the gir command
-        if [[ $(gir -o . |& head -c1 | wc -c) -ne 0 ]]; then 
+        if [[ $(gir -o . |& wc -l) -ne 0 ]]; then 
           echo "gir -o failed"
           exit 1
         fi
@@ -30,15 +30,17 @@ runs:
       run: |
         ls
         export PATH=$PATH:/github/home/.cargo/bin
-        if [[ $(gir -o . |& head -c1 | wc -c) -ne 0 ]]; then
+        if [[ $(gir -o . |& wc -l) -ne 0 ]]; then
           echo "gir -o failed"
           exit 1
         fi
-        if [[ $(gir -o . -m not_bound |& head -c1 | wc -c) -ne 0 ]]; then
+        if [[ $(gir -o . -m not_bound |& wc -l) -ne 0 ]]; then
           echo "gir not_bound failed"
           exit 1
         fi
-        if [[ $(gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc |& head -c1 | wc -c) -ne 0 ]]; then
+        # Generating the docs creates a warning. The fix has been upstreamed but until there is a new release of gtk-layer-shell, there will be two warnings
+        # Once the new version is released, this comparison can be changed to 0 instead of 2.
+        if [[ $(gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc |& wc -l) -ne 2 ]]; then
           echo "gir docs failed"
           exit 1
         fi
