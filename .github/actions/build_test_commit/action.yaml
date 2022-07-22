@@ -29,13 +29,13 @@ runs:
       run: |
         ls
         export PATH=$PATH:/github/home/.cargo/bin
-        gir -o .
         if [[ $(gir -o . | head -c1 | wc -c) -ne 0 ]]; then
           exit 1
         fi
         if [[ $(gir -o . -m not_bound | head -c1 | wc -c) -ne 0 ]]; then
           exit 1
         fi
+        gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
         if [[ $(gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc | head -c1 | wc -c) -ne 0 ]]; then
           exit 1
         fi
