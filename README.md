@@ -5,7 +5,7 @@
 [![docs.rs](https://docs.rs/gtk-layer-shell-sys/badge.svg)](https://docs.rs/gtk-layer-shell-sys)
 [![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.4.1/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.4.1)
 [![Build_x86](https://img.shields.io/github/workflow/status/pentamassiv/gtk-layer-shell-gir/Build_x86/main)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_x86.yaml)
-[![Build_aarch64](https://img.shields.io/github/workflow/status/pentamassiv/gtk-layer-shell-gir/Build_aarch64/main)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml)
+[![Build aarch64](https://img.shields.io/github/workflow/status/pentamassiv/gtk-layer-shell-gir/Build%20aarch64)](https://github.com/pentamassiv/gtk-layer-shell-gir/actions/workflows/build_aarch64.yaml)
 ![dependabot status](https://img.shields.io/badge/dependabot-enabled-025e8c?logo=Dependabot)
 
 
