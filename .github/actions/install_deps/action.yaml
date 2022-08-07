@@ -4,6 +4,9 @@ description: "Installs the dependencies, checks out the code and sets up caching
 runs:
   using: "composite"
   steps:
+    - name: Update repos
+      shell: bash
+      run: sudo apt-get update
     - name: Install git, GTK and Rust libraries
       shell: bash
       run: sudo apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
