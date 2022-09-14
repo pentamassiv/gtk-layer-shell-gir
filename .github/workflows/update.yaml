@@ -19,7 +19,6 @@ jobs:
       ## Update the version of gir that is used for the code generation
       - name: Update gir submodule
         run: |
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           git submodule update --remote
       - name: Install gir
         working-directory: ./gir

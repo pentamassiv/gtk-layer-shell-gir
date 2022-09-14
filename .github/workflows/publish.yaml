@@ -55,8 +55,6 @@ jobs:
         run: |
           sed -i '0,/${{ env.CRATE_PATH }}\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//${{ env.CRATE_PATH }}\/${{ github.event.inputs.version }}/}' ./README.md
           sed -i '0,/${{ env.CRATE_PATH }}\/${{ steps.previous_version.outputs.PREVIOUS_VERSION }}/{s//${{ env.CRATE_PATH }}\/${{ github.event.inputs.version }}/}' ./README.md
-      - name: Workaround needed due to new git version
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
       - name: Commit the changes to repo
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
