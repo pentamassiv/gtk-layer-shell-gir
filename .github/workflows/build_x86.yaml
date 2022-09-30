@@ -20,4 +20,10 @@ jobs:
         with:
           submodules: "true"
       - uses: ./.github/actions/install_deps
+      - name: Install gir
+        working-directory: ./gir
+        run: |
+          ls
+          export PATH=$PATH:/github/home/.cargo/bin
+          cargo install --force --path .
       - uses: ./.github/actions/build_test_commit

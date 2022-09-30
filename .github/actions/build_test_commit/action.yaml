@@ -16,7 +16,6 @@ runs:
         ls
         export PATH=$PATH:/github/home/.cargo/bin
         # Test if there is any output to the gir command
-        gir -o .
         if [[ $(gir -o . |& wc -l) -ne 0 ]]; then 
           echo "gir -o failed"
           exit 1
