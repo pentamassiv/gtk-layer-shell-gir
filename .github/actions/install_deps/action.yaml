@@ -10,6 +10,9 @@ runs:
     - name: Install git, GTK and Rust libraries
       shell: bash
       run: sudo apt-get install -y git tar rust-all libgtk-3-dev libgtk-layer-shell-dev
+    - name: Install Rust nightly to be able to enable the dox feature
+      shell: bash
+      run: sudo rustup default nightly
     - uses: actions/cache@v3
       with:
         path: |
