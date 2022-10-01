@@ -20,6 +20,12 @@ jobs:
         with:
           submodules: "true"
       - uses: ./.github/actions/install_deps
+      - name: Install latest nightly
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: nightly
+            override: true
+            components: rustfmt, clippy
       - name: Install gir
         working-directory: ./gir
         run: |

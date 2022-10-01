@@ -27,6 +27,12 @@ jobs:
         with:
           submodules: "true"
       - uses: ./.github/actions/install_deps
+      - name: Install latest nightly
+        uses: actions-rs/toolchain@v1
+        with:
+            toolchain: nightly
+            override: true
+            components: rustfmt, clippy
       - name: "Set the path"
         run: |
           if [[ ${{ github.event.inputs.crate_type }} == 'sys' ]]; then
