@@ -21,8 +21,8 @@ runs:
           exit 1
         fi
         cargo update
-        cargo build --verbose
-        cargo test --verbose
+        cargo build --verbose --all-features
+        cargo test --verbose --all-features
     # Exit with an error if there is any output of the gir commands, because then there might be some wrongly generated code or errors
     - name: Build and test the wrapper crate
       shell: bash
@@ -48,13 +48,13 @@ runs:
         rustdoc-stripper -s -n
         rustdoc-stripper -g -o docs.md
         cargo update
-        cargo build --verbose
-        cargo test --verbose
+        cargo build --verbose --all-features
+        cargo test --verbose --all-features
         cargo doc
     - name: Build the example
       working-directory: ./gtk-layer-shell/
       shell: bash
-      run: cargo build --example simple-example
+      run: cargo build--example simple-example
     - name: Count the number of files other than the versions.txt files, which were changed
       id: changed_files
       shell: bash
