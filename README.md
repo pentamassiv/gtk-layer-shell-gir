@@ -1,6 +1,6 @@
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell.svg)](https://crates.io/crates/gtk-layer-shell)
 [![docs.rs](https://docs.rs/gtk-layer-shell/badge.svg)](https://docs.rs/gtk-layer-shell)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.4.3/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.4.3)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.4.4/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.4.4)
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell-sys.svg)](https://crates.io/crates/gtk-layer-shell-sys)
 [![docs.rs](https://docs.rs/gtk-layer-shell-sys/badge.svg)](https://docs.rs/gtk-layer-shell-sys)
 [![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.4.4/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.4.4)
