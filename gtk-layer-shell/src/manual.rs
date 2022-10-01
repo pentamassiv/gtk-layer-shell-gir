@@ -1,3 +1,6 @@
+use glib::object::IsA;
+use glib::translate::ToGlibPtr;
+
 pub type ZwlrLayerSurfaceV1 = ffi::zwlr_layer_surface_v1;
 
 /// ## `window`
