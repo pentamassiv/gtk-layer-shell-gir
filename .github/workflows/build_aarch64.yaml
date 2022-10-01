@@ -45,9 +45,9 @@ jobs:
           #   .. run build steps on the container
           run: |
             cd gtk-layer-shell-sys
-            cargo build --verbose --all-features
-            cargo test --verbose --all-features
+            cargo build --verbose --feature v0_6
+            cargo test --verbose --feature v0_6
             cd ../gtk-layer-shell
-            cargo build --verbose --all-features
-            cargo test --verbose --all-features
+            cargo build --verbose --feature v0_6
+            cargo test --verbose --feature v0_6
             cargo build --example simple-example
