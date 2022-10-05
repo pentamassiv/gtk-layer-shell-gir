@@ -23,6 +23,7 @@ runs:
         cargo update
         cargo build --verbose --all-features
         cargo test --verbose --features v0_6
+        cargo doc --all-features
     # Exit with an error if there is any output of the gir commands, because then there might be some wrongly generated code or errors
     - name: Build and test the wrapper crate
       shell: bash
@@ -50,7 +51,7 @@ runs:
         cargo update
         cargo build --verbose --all-features
         cargo test --verbose --features v0_6
-        cargo doc
+        cargo doc --all-features
     - name: Build the example
       working-directory: ./gtk-layer-shell/
       shell: bash
