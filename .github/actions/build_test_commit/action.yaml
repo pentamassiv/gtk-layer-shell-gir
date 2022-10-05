@@ -22,7 +22,6 @@ runs:
         fi
         cargo update
         cargo build --verbose --all-features
-        cargo test --verbose --all-features
         cargo test --verbose --features v0_6
     # Exit with an error if there is any output of the gir commands, because then there might be some wrongly generated code or errors
     - name: Build and test the wrapper crate
@@ -50,7 +49,6 @@ runs:
         rustdoc-stripper -g -o docs.md
         cargo update
         cargo build --verbose --all-features
-        cargo test --verbose --all-features
         cargo test --verbose --features v0_6
         cargo doc
     - name: Build the example
