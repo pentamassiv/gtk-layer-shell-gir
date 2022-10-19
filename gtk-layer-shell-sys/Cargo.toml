@@ -33,15 +33,15 @@ libc = "0.2"
 
 [dependencies.glib]
 package = "glib-sys"
-version = "0.15.10"
+version = "0.16.0"
 
 [dependencies.gdk]
 package = "gdk-sys"
-version = "0.15.1"
+version = "0.16.0"
 
 [dependencies.gtk]
 package = "gtk-sys"
-version = "0.15.3"
+version = "0.16.0"
 
 [build-dependencies]
 system-deps = "6"
