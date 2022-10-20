@@ -23,7 +23,7 @@ gtk = "0.16.0"
 ffi = { package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys", version = "0.4" }
 
 [dev-dependencies]
-gio = "0.15.10"
+gio = "0.16.0"
 
 [features]
 v0_4 = ["ffi/v0_4"]
