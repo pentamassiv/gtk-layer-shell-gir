@@ -12,7 +12,7 @@ gtk-layer-shell:
 gtk-layer-shell-sys:
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell-sys.svg)](https://crates.io/crates/gtk-layer-shell-sys)
 [![docs.rs](https://docs.rs/gtk-layer-shell-sys/badge.svg)](https://docs.rs/gtk-layer-shell-sys)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.4.4/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.4.4)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.5.0/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.5.0)
 
 
 # gtk-layer-shell
