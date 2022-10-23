@@ -52,7 +52,7 @@ jobs:
       - name: Get the first character of the version of the gtk-layer-shell package to detect mayor version bumps
         id: major_version_check
         run: |
-          echo ::set-output name=MAJOR_VERSION::$(dpkg -s libgtk-layer-shell-dev | grep Version | sed 's/Version. 0.//' | cut -c1-1)
+          echo "MAJOR_VERSION=$(dpkg -s libgtk-layer-shell-dev | grep Version | sed 's/Version. 0.//' | cut -c1-1)" >> $GITHUB_OUTPUT
           echo "Version: ${{ steps.major_version_check.outputs.MAJOR_VERSION }}"
       - name: Fail if mayor version was increased
         if: steps.major_version_check.outputs.MAJOR_VERSION != '7'
