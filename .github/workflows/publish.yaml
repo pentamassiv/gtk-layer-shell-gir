@@ -45,7 +45,7 @@ jobs:
       - name: Get the version number
         id: previous_version
         run: |
-          echo ::set-output name=PREVIOUS_VERSION::$(grep -o -m 1 -P '(?<=version = ").*(?=")' ./${{ env.CRATE_PATH }}/Cargo.toml)
+          echo "PREVIOUS_VERSION=$(grep -o -m 1 -P '(?<=version = ").*(?=")' ./${{ env.CRATE_PATH }}/Cargo.toml)" >> $GITHUB_OUTPUT
       - name: Output the version numbers
         run: |
           echo "Previous version: ${{ steps.previous_version.outputs.PREVIOUS_VERSION }}"

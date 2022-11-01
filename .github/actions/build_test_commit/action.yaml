@@ -60,7 +60,7 @@ runs:
       id: changed_files
       shell: bash
       if: ${{ inputs.commit_message != '' }}
-      run: echo ::set-output name=NO_CHANGED_FILES::$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' ':(exclude)gir' | wc -l)
+      run: echo "NO_CHANGED_FILES=$(git diff --name-only -- . ':(exclude)gtk-layer-shell/src/auto/versions.txt' ':(exclude)gtk-layer-shell-sys/src/auto/versions.txt' ':(exclude)gir' | wc -l)" >> $GITHUB_OUTPUT
     - name: Commit code changes to main
       if: inputs.commit_message != '' && steps.changed_files.outputs.NO_CHANGED_FILES != '0'
       uses: stefanzweifel/git-auto-commit-action@v4
