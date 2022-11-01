@@ -16,11 +16,9 @@ jobs:
         with:
           submodules: "true"
       - uses: ./.github/actions/install_deps
-      - name: Install latest nightly
-        uses: actions-rs/toolchain@v1
+      - uses: dtolnay/rust-toolchain@master
         with:
             toolchain: nightly
-            override: true
             components: rustfmt, clippy
       ## Update the version of gir that is used for the code generation
       - name: Update gir submodule
