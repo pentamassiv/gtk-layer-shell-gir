@@ -33,7 +33,7 @@ gir -o . -m not_bound
 There should not be any output to this command. Let me know if there is so I can fix it. 
 In order to build the documentation, you have to run
 ```
-gir -c Gir.toml -d ../gir-files --doc-target-path docs.md -m doc
+gir -c Gir.toml --doc-target-path docs.md -m doc
 cargo install rustdoc-stripper
 rustdoc-stripper -s -n
 rustdoc-stripper -g -o docs.md

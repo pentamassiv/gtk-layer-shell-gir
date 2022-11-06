@@ -4,7 +4,7 @@ version = "0.1"
 target_path = "."
 min_cfg_version = "0.1"
 work_mode = "normal"
-girs_directories = ["../gir-files"]
+girs_directories = ["../gir-files", ".."]
 generate_safety_asserts = true
 deprecate_by_min_version = true
 single_version_file = true
@@ -16,7 +16,4 @@ generate = [
     "GtkLayerShell.*",
 ]
 
-manual = [
-    "Gtk.Window",
-    "Gdk.Monitor",
-]
+manual = ["Gtk.Window", "Gdk.Monitor"]

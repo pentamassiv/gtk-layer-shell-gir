@@ -4,11 +4,7 @@ version = "0.1"
 target_path = "."
 min_cfg_version = "0.1"
 work_mode = "sys"
-girs_directories = ["../gir-files"]
+girs_directories = ["../gir-files", ".."]
 single_version_file = true
 
-external_libraries = [
-    "GLib",
-    "Gdk",
-    "Gtk",
-]
+external_libraries = ["GLib", "Gdk", "Gtk"]
