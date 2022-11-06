@@ -1,5 +1,3 @@
 gtk-layer-shell/docs.md
-gtk-layer-shell/target
-gtk-layer-shell/Cargo.lock
-gtk-layer-shell-sys/target
-gtk-layer-shell-sys/Cargo.lock
+Cargo.lock
+target
