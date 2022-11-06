@@ -20,13 +20,11 @@ jobs:
         with:
             toolchain: nightly
             components: rustfmt, clippy
-      ## Update the version of gir that is used for the code generation
-      - name: Update gir submodule
-        run: |
-          git submodule update --remote
+      ## Update the gir submodule and install the new version
       - name: Install gir
         working-directory: ./gir
         run: |
+          git pull
           ls
           export PATH=$PATH:/github/home/.cargo/bin
           cargo install --force --path .
@@ -35,13 +33,9 @@ jobs:
           commit_message: Automatically updated the version of gir
       ## Update the gir files of the dependencies
       - name: Get newest gir-files from upstream
+        working-directory: ./gir-files
         run: |
-          mv ./gir-files/GtkLayerShell-0.1.gir ./GtkLayerShell-0.1.gir # Copy GtkLayerShell.gir file to root folder to save it from deletion
-          rm -rf ./gir-files
-          git clone --depth 1 https://github.com/gtk-rs/gir-files.git
-          rm -rf ./gir-files/.github
-          rm ./gir-files/.gitignore
-          mv ./GtkLayerShell-0.1.gir ./gir-files/GtkLayerShell-0.1.gir # Put the GtkLayerShell.gir file back into the gir-files folder
+          git pull
       - uses: ./.github/actions/build_test_commit
         with:
           commit_message: Automatically updated the gir files
@@ -55,11 +49,11 @@ jobs:
       - name: Fail if mayor version was increased
         if: steps.major_version_check.outputs.MAJOR_VERSION != '7'
         run: exit 1
-      - name: Copy newest GtkLayerShell.gir file into gir-files folder
+      - name: Copy newest GtkLayerShell.gir file into the project folder
         run: |
           CWD_MY_VAR=$(pwd)
           cd /usr/share/gir-1.0
-          for i in GtkLayerShell-*.*.gir; do cp "$i" $CWD_MY_VAR/gir-files/"${i}"; done
+          for i in GtkLayerShell-*.*.gir; do cp "$i" $CWD_MY_VAR/"${i}"; done
       - uses: ./.github/actions/build_test_commit
         with:
           commit_message: Automatically updated the version of gtk-layer-shell
