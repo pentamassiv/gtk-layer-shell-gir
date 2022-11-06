@@ -1,0 +1,2 @@
+[workspace]
+members = ["gtk-layer-shell", "gtk-layer-shell-sys"]
