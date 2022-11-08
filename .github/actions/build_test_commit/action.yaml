@@ -39,9 +39,8 @@ runs:
           echo "gir not_bound failed"
           exit 1
         fi
-        # Generating the docs creates a warning. The fix has been upstreamed but until there is a new release of gtk-layer-shell, there will be two warnings
-        # Once the new version is released, this comparison can be changed to 0 instead of 2.
-        if [[ $(gir -c Gir.toml --doc-target-path docs.md -m doc |& wc -l) -ne 2 ]]; then
+        # Check if the docs were generated without a warning
+        if [[ $(gir -c Gir.toml --doc-target-path docs.md -m doc |& wc -l) -ne 0 ]]; then
           echo "gir docs failed"
           exit 1
         fi
