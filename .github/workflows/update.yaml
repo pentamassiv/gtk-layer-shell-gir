@@ -39,7 +39,7 @@ jobs:
       - uses: ./.github/actions/build_test_commit
         with:
           commit_message: Automatically updated the gir files
-      ## Update the version of the gtk-layer-shell gir file
+      ## Check the version of the gtk-layer-shell package
       ## Aborts if there was a major version bump
       - name: Get the first character of the version of the gtk-layer-shell package to detect mayor version bumps
         id: major_version_check
@@ -49,11 +49,6 @@ jobs:
       - name: Fail if mayor version was increased
         if: steps.major_version_check.outputs.MAJOR_VERSION != '7'
         run: exit 1
-      - name: Copy newest GtkLayerShell.gir file into the project folder
-        run: |
-          CWD_MY_VAR=$(pwd)
-          cd /usr/share/gir-1.0
-          for i in GtkLayerShell-*.*.gir; do cp "$i" $CWD_MY_VAR/"${i}"; done
       - uses: ./.github/actions/build_test_commit
         with:
           commit_message: Automatically updated the version of gtk-layer-shell
