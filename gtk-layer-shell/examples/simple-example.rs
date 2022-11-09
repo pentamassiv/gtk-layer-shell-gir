@@ -10,7 +10,7 @@ fn activate(application: &gtk::Application) {
     gtk_layer_shell::init_for_window(&window);
 
     // Order below normal windows
-    gtk_layer_shell::set_layer(&window, gtk_layer_shell::Layer::Bottom);
+    gtk_layer_shell::set_layer(&window, gtk_layer_shell::Layer::Overlay);
 
     // Push other windows out of the way
     gtk_layer_shell::auto_exclusive_zone_enable(&window);
