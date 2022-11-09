@@ -1,5 +1,6 @@
 #![cfg_attr(feature = "dox", feature(doc_cfg))]
 #![deny(warnings)]
+#![allow(clippy::single_component_path_imports)]
 
 macro_rules! assert_initialized_main_thread {
     () => {
