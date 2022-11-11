@@ -24,7 +24,7 @@ jobs:
       - name: Install gir
         working-directory: ./gir
         run: |
-          git pull
+          git pull origin master
           ls
           export PATH=$PATH:/github/home/.cargo/bin
           cargo install --force --path .
@@ -35,7 +35,7 @@ jobs:
       - name: Get newest gir-files from upstream
         working-directory: ./gir-files
         run: |
-          git pull
+          git pull origin master
       - uses: ./.github/actions/build_test_commit
         with:
           commit_message: Automatically updated the gir files
