@@ -3,6 +3,8 @@
 // from ../gir-files
 // DO NOT EDIT
 
+#![cfg(target_os = "linux")]
+
 use gtk_layer_shell_sys::*;
 use std::mem::{align_of, size_of};
 use std::env;
@@ -113,7 +115,6 @@ impl Results {
 }
 
 #[test]
-#[cfg(target_os = "linux")]
 fn cross_validate_constants_with_c() {
     let mut c_constants: Vec<(String, String)> = Vec::new();
 
@@ -148,7 +149,6 @@ fn cross_validate_constants_with_c() {
 }
 
 #[test]
-#[cfg(target_os = "linux")]
 fn cross_validate_layout_with_c() {
     let mut c_layouts = Vec::new();
 

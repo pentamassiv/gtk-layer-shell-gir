@@ -91,6 +91,7 @@ pub fn exclusive_zone(window: &impl IsA<gtk::Window>) -> i32 {
 #[cfg_attr(feature = "v0_6", deprecated = "Since 0.6")]
 #[cfg(any(feature = "v0_5", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[allow(deprecated)]
 #[doc(alias = "gtk_layer_get_keyboard_interactivity")]
 #[doc(alias = "get_keyboard_interactivity")]
 pub fn is_keyboard_interactivity(window: &impl IsA<gtk::Window>) -> bool {
@@ -353,6 +354,7 @@ pub fn set_exclusive_zone(window: &impl IsA<gtk::Window>, exclusive_zone: i32) {
 /// ## `interactivity`
 /// Whether the layer surface should receive keyboard events.
 #[cfg_attr(feature = "v0_6", deprecated = "Since 0.6")]
+#[allow(deprecated)]
 #[doc(alias = "gtk_layer_set_keyboard_interactivity")]
 pub fn set_keyboard_interactivity(window: &impl IsA<gtk::Window>, interactivity: bool) {
     assert_initialized_main_thread!();
