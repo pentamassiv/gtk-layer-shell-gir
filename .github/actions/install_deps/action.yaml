@@ -7,6 +7,9 @@ runs:
     - name: Update repos
       shell: bash
       run: sudo apt-get update
+    - name: Upgrade system
+      shell: bash
+      run: sudo apt-get upgrade -y
     - name: Install git and GTK3
       shell: bash
       run: sudo apt-get install -y git tar libgtk-3-dev libgtk-layer-shell-dev
