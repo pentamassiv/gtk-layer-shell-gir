@@ -3,13 +3,11 @@
 // from ../gir-files
 // DO NOT EDIT
 
-use crate::Edge;
+use crate::{Edge,Layer};
 #[cfg(any(feature = "v0_6", feature = "dox"))]
 #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
-use crate::KeyboardMode;
-use crate::Layer;
-use glib::object::IsA;
-use glib::translate::*;
+use crate::{KeyboardMode};
+use glib::{prelude::*,translate::*};
 
 
 /// When auto exclusive zone is enabled, exclusive zone is automatically set to the

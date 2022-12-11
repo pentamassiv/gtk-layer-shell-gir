@@ -3,8 +3,8 @@
 // from ../gir-files
 // DO NOT EDIT
 
-use glib::translate::*;
-use std::fmt;
+use glib::{translate::*};
+use std::{fmt};
 
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[derive(Clone, Copy)]
