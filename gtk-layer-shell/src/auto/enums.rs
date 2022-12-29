@@ -48,7 +48,8 @@ impl fmt::Display for Edge {
 impl IntoGlib for Edge {
     type GlibType = ffi::GtkLayerShellEdge;
 
-    fn into_glib(self) -> ffi::GtkLayerShellEdge {
+    #[inline]
+fn into_glib(self) -> ffi::GtkLayerShellEdge {
         match self {
             Self::Left => ffi::GTK_LAYER_SHELL_EDGE_LEFT,
             Self::Right => ffi::GTK_LAYER_SHELL_EDGE_RIGHT,
@@ -62,7 +63,8 @@ impl IntoGlib for Edge {
 
 #[doc(hidden)]
 impl FromGlib<ffi::GtkLayerShellEdge> for Edge {
-    unsafe fn from_glib(value: ffi::GtkLayerShellEdge) -> Self {
+    #[inline]
+unsafe fn from_glib(value: ffi::GtkLayerShellEdge) -> Self {
         skip_assert_initialized!();
         match value {
             ffi::GTK_LAYER_SHELL_EDGE_LEFT => Self::Left,
@@ -114,7 +116,8 @@ impl fmt::Display for KeyboardMode {
 impl IntoGlib for KeyboardMode {
     type GlibType = ffi::GtkLayerShellKeyboardMode;
 
-    fn into_glib(self) -> ffi::GtkLayerShellKeyboardMode {
+    #[inline]
+fn into_glib(self) -> ffi::GtkLayerShellKeyboardMode {
         match self {
             Self::None => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_NONE,
             Self::Exclusive => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE,
@@ -127,7 +130,8 @@ impl IntoGlib for KeyboardMode {
 
 #[doc(hidden)]
 impl FromGlib<ffi::GtkLayerShellKeyboardMode> for KeyboardMode {
-    unsafe fn from_glib(value: ffi::GtkLayerShellKeyboardMode) -> Self {
+    #[inline]
+unsafe fn from_glib(value: ffi::GtkLayerShellKeyboardMode) -> Self {
         skip_assert_initialized!();
         match value {
             ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_NONE => Self::None,
@@ -181,7 +185,8 @@ impl fmt::Display for Layer {
 impl IntoGlib for Layer {
     type GlibType = ffi::GtkLayerShellLayer;
 
-    fn into_glib(self) -> ffi::GtkLayerShellLayer {
+    #[inline]
+fn into_glib(self) -> ffi::GtkLayerShellLayer {
         match self {
             Self::Background => ffi::GTK_LAYER_SHELL_LAYER_BACKGROUND,
             Self::Bottom => ffi::GTK_LAYER_SHELL_LAYER_BOTTOM,
@@ -195,7 +200,8 @@ impl IntoGlib for Layer {
 
 #[doc(hidden)]
 impl FromGlib<ffi::GtkLayerShellLayer> for Layer {
-    unsafe fn from_glib(value: ffi::GtkLayerShellLayer) -> Self {
+    #[inline]
+unsafe fn from_glib(value: ffi::GtkLayerShellLayer) -> Self {
         skip_assert_initialized!();
         match value {
             ffi::GTK_LAYER_SHELL_LAYER_BACKGROUND => Self::Background,
