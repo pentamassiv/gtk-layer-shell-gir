@@ -50,7 +50,7 @@ impl IntoGlib for Edge {
 
     #[inline]
 fn into_glib(self) -> ffi::GtkLayerShellEdge {
-        match self {
+match self {
             Self::Left => ffi::GTK_LAYER_SHELL_EDGE_LEFT,
             Self::Right => ffi::GTK_LAYER_SHELL_EDGE_RIGHT,
             Self::Top => ffi::GTK_LAYER_SHELL_EDGE_TOP,
@@ -58,7 +58,7 @@ fn into_glib(self) -> ffi::GtkLayerShellEdge {
             Self::EntryNumber => ffi::GTK_LAYER_SHELL_EDGE_ENTRY_NUMBER,
             Self::__Unknown(value) => value,
 }
-    }
+}
 }
 
 #[doc(hidden)]
@@ -66,7 +66,8 @@ impl FromGlib<ffi::GtkLayerShellEdge> for Edge {
     #[inline]
 unsafe fn from_glib(value: ffi::GtkLayerShellEdge) -> Self {
         skip_assert_initialized!();
-        match value {
+        
+match value {
             ffi::GTK_LAYER_SHELL_EDGE_LEFT => Self::Left,
             ffi::GTK_LAYER_SHELL_EDGE_RIGHT => Self::Right,
             ffi::GTK_LAYER_SHELL_EDGE_TOP => Self::Top,
@@ -74,7 +75,7 @@ unsafe fn from_glib(value: ffi::GtkLayerShellEdge) -> Self {
             ffi::GTK_LAYER_SHELL_EDGE_ENTRY_NUMBER => Self::EntryNumber,
             value => Self::__Unknown(value),
 }
-    }
+}
 }
 
 /// GTK_LAYER_SHELL_KEYBOARD_MODE_NONE: This window should not receive keyboard events.
@@ -118,14 +119,14 @@ impl IntoGlib for KeyboardMode {
 
     #[inline]
 fn into_glib(self) -> ffi::GtkLayerShellKeyboardMode {
-        match self {
+match self {
             Self::None => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_NONE,
             Self::Exclusive => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE,
             Self::OnDemand => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND,
             Self::EntryNumber => ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER,
             Self::__Unknown(value) => value,
 }
-    }
+}
 }
 
 #[doc(hidden)]
@@ -133,14 +134,15 @@ impl FromGlib<ffi::GtkLayerShellKeyboardMode> for KeyboardMode {
     #[inline]
 unsafe fn from_glib(value: ffi::GtkLayerShellKeyboardMode) -> Self {
         skip_assert_initialized!();
-        match value {
+        
+match value {
             ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_NONE => Self::None,
             ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE => Self::Exclusive,
             ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND => Self::OnDemand,
             ffi::GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER => Self::EntryNumber,
             value => Self::__Unknown(value),
 }
-    }
+}
 }
 
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
@@ -187,7 +189,7 @@ impl IntoGlib for Layer {
 
     #[inline]
 fn into_glib(self) -> ffi::GtkLayerShellLayer {
-        match self {
+match self {
             Self::Background => ffi::GTK_LAYER_SHELL_LAYER_BACKGROUND,
             Self::Bottom => ffi::GTK_LAYER_SHELL_LAYER_BOTTOM,
             Self::Top => ffi::GTK_LAYER_SHELL_LAYER_TOP,
@@ -195,7 +197,7 @@ fn into_glib(self) -> ffi::GtkLayerShellLayer {
             Self::EntryNumber => ffi::GTK_LAYER_SHELL_LAYER_ENTRY_NUMBER,
             Self::__Unknown(value) => value,
 }
-    }
+}
 }
 
 #[doc(hidden)]
@@ -203,7 +205,8 @@ impl FromGlib<ffi::GtkLayerShellLayer> for Layer {
     #[inline]
 unsafe fn from_glib(value: ffi::GtkLayerShellLayer) -> Self {
         skip_assert_initialized!();
-        match value {
+        
+match value {
             ffi::GTK_LAYER_SHELL_LAYER_BACKGROUND => Self::Background,
             ffi::GTK_LAYER_SHELL_LAYER_BOTTOM => Self::Bottom,
             ffi::GTK_LAYER_SHELL_LAYER_TOP => Self::Top,
@@ -211,6 +214,6 @@ unsafe fn from_glib(value: ffi::GtkLayerShellLayer) -> Self {
             ffi::GTK_LAYER_SHELL_LAYER_ENTRY_NUMBER => Self::EntryNumber,
             value => Self::__Unknown(value),
 }
-    }
+}
 }
 
