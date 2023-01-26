@@ -10,6 +10,7 @@ keywords = ["gtk", "gtk-layer-shell", "wayland", "FFI", "unsafe"]
 categories = ["external-ffi-bindings", "gui"]
 edition = "2021"
 build = "build.rs"
+
 [package.metadata.system-deps.gtk_layer_shell_0]
 name = "gtk-layer-shell-0"
 version = "0.1"
@@ -22,6 +23,7 @@ version = "0.5"
 
 [package.metadata.system-deps.gtk_layer_shell_0.v0_6]
 version = "0.6"
+
 [package.metadata.docs.rs]
 features = ["dox"]
 
