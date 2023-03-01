@@ -1,5 +1,7 @@
 name: "Build x86"
 
+permissions:
+  contents: read
 on:
   workflow_dispatch:
   push:
