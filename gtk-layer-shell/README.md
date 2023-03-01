@@ -9,7 +9,7 @@ gtk-layer-shell:
 [![dependency status](https://deps.rs/crate/gtk-layer-shell/0.6.0/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.6.0)
 
 # gtk-layer-shell
-This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gir-files/GtkLayerShell-0.1.gir). The unsafe bindings can be found [here](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell-sys). Unfortunately this crate is GTK3 only because upstream does not yet support GTK4 (https://github.com/wmww/gtk-layer-shell/issues/37).
+This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](../GtkLayerShell-0.1.gir). The unsafe bindings can be found [here](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell-sys). Unfortunately this crate is GTK3 only because upstream does not yet support GTK4 (https://github.com/wmww/gtk-layer-shell/issues/37).
 
 ## Usage
 Have a look at the [simple example](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell/examples/simple-example.rs) to see how the bindings can be used. It works analogous to the original. You can use the features to select the version of gtk-layer-shell. Currently v0_6 is the default.
