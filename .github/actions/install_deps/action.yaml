@@ -7,6 +7,11 @@ runs:
     - name: Update repos
       shell: bash
       run: sudo apt-get update
+
+    - name: Hold back grub-efi-amd64-signed # TODO: Remove temporary fix
+      shell: bash
+      run: sudo apt-mark hold grub-efi-amd64-signed
+      
     - name: Upgrade system
       shell: bash
       run: sudo apt-get upgrade -y
