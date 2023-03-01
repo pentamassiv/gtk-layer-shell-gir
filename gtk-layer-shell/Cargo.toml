@@ -20,7 +20,7 @@ glib = "0.17"
 glib-sys = "0.17"
 gdk = { version = "0.17", features = ["v3_24"] }
 gtk = "0.17"
-ffi = { package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys", version = "0.5" }
+ffi = { package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys", version = "0.6" }
 
 [dev-dependencies]
 gio = "0.17"
