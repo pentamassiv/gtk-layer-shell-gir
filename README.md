@@ -15,7 +15,7 @@ gtk-layer-shell-sys:
 
 
 # gtk-layer-shell
-This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](GtkLayerShell-0.1.gir). For details on how to use it or how to generate the code yourself, have a look at the crate's [README](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell/README.md). The unsafe bindings can be found in this [folder](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell-sys). Unfortunately this crate is GTK3 only because upstream does not yet support GTK4 (https://github.com/wmww/gtk-layer-shell/issues/37).
+This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](GtkLayerShell-0.1.gir). For details on how to use it or how to generate the code yourself, have a look at the crate's [README](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell/README.md). The unsafe bindings can be found in this [folder](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell-sys). These crates are GTK3 only. Use [gtk4-layer-shell-sys](https://crates.io/crates/gtk4-layer-shell-sys) or [gtk4-layer-shell](https://crates.io/crates/gtk4-layer-shell) if you need to use it with GTK4.
 
 ## Maintenance status
 These crates are just wrappers for the C library so it is feature complete and not actively worked on. There are Github Actions keeping the dependencies up-to-date. If you encounter any problems, feel free to open a PR.

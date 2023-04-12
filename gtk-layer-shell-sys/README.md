@@ -9,7 +9,7 @@ gtk-layer-shell-sys:
 [![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.6.0/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.6.0)
 
 # gtk-layer-shell-sys
-These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../GtkLayerShell-0.1.gir). Unfortunately this crate is GTK3 only because upstream does not yet support GTK4 (https://github.com/wmww/gtk-layer-shell/issues/37).
+These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../GtkLayerShell-0.1.gir). This crate is GTK3 only. Use [gtk4-layer-shell](https://crates.io/crates/gtk4-layer-shell) if you need to use it with GTK4.
 
 ## Usage
 These are the unsafe bindings. You most likely want to use the safe [wrapper](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell). If you are sure you want the unsafe bindings, you can use the features to select the version of gtk-layer-shell. Default currently is v0_6.
