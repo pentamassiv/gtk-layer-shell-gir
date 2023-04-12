@@ -9,7 +9,7 @@ fn activate(application: &gtk::Application) {
     // Before the window is first realized, set it up to be a layer surface
     gtk_layer_shell::init_for_window(&window);
 
-    // Order below normal windows
+    // Display it above normal windows
     gtk_layer_shell::set_layer(&window, gtk_layer_shell::Layer::Overlay);
 
     // Push other windows out of the way
