@@ -5,7 +5,7 @@
 
 #![allow(non_camel_case_types, non_upper_case_globals, non_snake_case)]
 #![allow(clippy::approx_constant, clippy::type_complexity, clippy::unreadable_literal, clippy::upper_case_acronyms)]
-#![cfg_attr(feature = "dox", feature(doc_cfg))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 
 
 mod manual;
@@ -48,60 +48,60 @@ extern "C" {
     // Other functions
     //=========================================================================
     pub fn gtk_layer_auto_exclusive_zone_enable(window: *mut gtk::GtkWindow);
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_auto_exclusive_zone_is_enabled(window: *mut gtk::GtkWindow) -> gboolean;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_get_anchor(window: *mut gtk::GtkWindow, edge: GtkLayerShellEdge) -> gboolean;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_get_exclusive_zone(window: *mut gtk::GtkWindow) -> c_int;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_get_keyboard_interactivity(window: *mut gtk::GtkWindow) -> gboolean;
-    #[cfg(any(feature = "v0_6", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
+    #[cfg(any(feature = "v0_6", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
     pub fn gtk_layer_get_keyboard_mode(window: *mut gtk::GtkWindow) -> GtkLayerShellKeyboardMode;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_get_layer(window: *mut gtk::GtkWindow) -> GtkLayerShellLayer;
-    #[cfg(any(feature = "v0_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+    #[cfg(any(feature = "v0_4", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
     pub fn gtk_layer_get_major_version() -> c_uint;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_get_margin(window: *mut gtk::GtkWindow, edge: GtkLayerShellEdge) -> c_int;
-    #[cfg(any(feature = "v0_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+    #[cfg(any(feature = "v0_4", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
     pub fn gtk_layer_get_micro_version() -> c_uint;
-    #[cfg(any(feature = "v0_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+    #[cfg(any(feature = "v0_4", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
     pub fn gtk_layer_get_minor_version() -> c_uint;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_get_monitor(window: *mut gtk::GtkWindow) -> *mut gdk::GdkMonitor;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_get_namespace(window: *mut gtk::GtkWindow) -> *const c_char;
-    #[cfg(any(feature = "v0_6", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
+    #[cfg(any(feature = "v0_6", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
     pub fn gtk_layer_get_protocol_version() -> c_uint;
-    #[cfg(any(feature = "v0_4", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+    #[cfg(any(feature = "v0_4", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
     pub fn gtk_layer_get_zwlr_layer_surface_v1(window: *mut gtk::GtkWindow) -> *mut zwlr_layer_surface_v1;
     pub fn gtk_layer_init_for_window(window: *mut gtk::GtkWindow);
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_is_layer_window(window: *mut gtk::GtkWindow) -> gboolean;
-    #[cfg(any(feature = "v0_5", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+    #[cfg(any(feature = "v0_5", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
     pub fn gtk_layer_is_supported() -> gboolean;
     pub fn gtk_layer_set_anchor(window: *mut gtk::GtkWindow, edge: GtkLayerShellEdge, anchor_to_edge: gboolean);
     pub fn gtk_layer_set_exclusive_zone(window: *mut gtk::GtkWindow, exclusive_zone: c_int);
     pub fn gtk_layer_set_keyboard_interactivity(window: *mut gtk::GtkWindow, interactivity: gboolean);
-    #[cfg(any(feature = "v0_6", feature = "dox"))]
-    #[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
+    #[cfg(any(feature = "v0_6", docsrs))]
+    #[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
     pub fn gtk_layer_set_keyboard_mode(window: *mut gtk::GtkWindow, mode: GtkLayerShellKeyboardMode);
     pub fn gtk_layer_set_layer(window: *mut gtk::GtkWindow, layer: GtkLayerShellLayer);
     pub fn gtk_layer_set_margin(window: *mut gtk::GtkWindow, edge: GtkLayerShellEdge, margin_size: c_int);

@@ -4,8 +4,8 @@
 // DO NOT EDIT
 
 use crate::{Edge,Layer};
-#[cfg(any(feature = "v0_6", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
+#[cfg(any(feature = "v0_6", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
 use crate::{KeyboardMode};
 use glib::{prelude::*,translate::*};
 
@@ -32,8 +32,8 @@ pub fn auto_exclusive_zone_enable(window: &impl IsA<gtk::Window>) {
 /// # Returns
 ///
 /// if the surface's exclusive zone is set to change based on the window's size
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_auto_exclusive_zone_is_enabled")]
 pub fn auto_exclusive_zone_is_enabled(window: &impl IsA<gtk::Window>) -> bool {
     assert_initialized_main_thread!();
@@ -48,8 +48,8 @@ pub fn auto_exclusive_zone_is_enabled(window: &impl IsA<gtk::Window>) -> bool {
 /// # Returns
 ///
 /// if this surface is anchored to the given edge.
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_get_anchor")]
 #[doc(alias = "get_anchor")]
 pub fn is_anchor(window: &impl IsA<gtk::Window>, edge: Edge) -> bool {
@@ -65,8 +65,8 @@ pub fn is_anchor(window: &impl IsA<gtk::Window>, edge: Edge) -> bool {
 /// # Returns
 ///
 /// the window's exclusive zone (which may have been set manually or automatically)
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_get_exclusive_zone")]
 #[doc(alias = "get_exclusive_zone")]
 pub fn exclusive_zone(window: &impl IsA<gtk::Window>) -> i32 {
@@ -87,8 +87,8 @@ pub fn exclusive_zone(window: &impl IsA<gtk::Window>) -> i32 {
 ///
 /// if keybaord interactivity is enabled
 #[cfg_attr(feature = "v0_6", deprecated = "Since 0.6")]
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[allow(deprecated)]
 #[doc(alias = "gtk_layer_get_keyboard_interactivity")]
 #[doc(alias = "get_keyboard_interactivity")]
@@ -105,8 +105,8 @@ pub fn is_keyboard_interactivity(window: &impl IsA<gtk::Window>) -> bool {
 /// # Returns
 ///
 /// current keyboard interactivity mode for `window`.
-#[cfg(any(feature = "v0_6", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
+#[cfg(any(feature = "v0_6", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
 #[doc(alias = "gtk_layer_get_keyboard_mode")]
 #[doc(alias = "get_keyboard_mode")]
 pub fn keyboard_mode(window: &impl IsA<gtk::Window>) -> KeyboardMode {
@@ -122,8 +122,8 @@ pub fn keyboard_mode(window: &impl IsA<gtk::Window>) -> KeyboardMode {
 /// # Returns
 ///
 /// the current layer.
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_get_layer")]
 #[doc(alias = "get_layer")]
 pub fn layer(window: &impl IsA<gtk::Window>) -> Layer {
@@ -137,8 +137,8 @@ pub fn layer(window: &impl IsA<gtk::Window>) -> Layer {
 /// # Returns
 ///
 /// the major version number of the GTK Layer Shell library
-#[cfg(any(feature = "v0_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+#[cfg(any(feature = "v0_4", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
 #[doc(alias = "gtk_layer_get_major_version")]
 #[doc(alias = "get_major_version")]
 pub fn major_version() -> u32 {
@@ -154,8 +154,8 @@ pub fn major_version() -> u32 {
 /// # Returns
 ///
 /// the size of the margin for the given edge.
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_get_margin")]
 #[doc(alias = "get_margin")]
 pub fn margin(window: &impl IsA<gtk::Window>, edge: Edge) -> i32 {
@@ -169,8 +169,8 @@ pub fn margin(window: &impl IsA<gtk::Window>, edge: Edge) -> i32 {
 /// # Returns
 ///
 /// the micro/patch version number of the GTK Layer Shell library
-#[cfg(any(feature = "v0_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+#[cfg(any(feature = "v0_4", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
 #[doc(alias = "gtk_layer_get_micro_version")]
 #[doc(alias = "get_micro_version")]
 pub fn micro_version() -> u32 {
@@ -184,8 +184,8 @@ pub fn micro_version() -> u32 {
 /// # Returns
 ///
 /// the minor version number of the GTK Layer Shell library
-#[cfg(any(feature = "v0_4", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+#[cfg(any(feature = "v0_4", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
 #[doc(alias = "gtk_layer_get_minor_version")]
 #[doc(alias = "get_minor_version")]
 pub fn minor_version() -> u32 {
@@ -203,8 +203,8 @@ pub fn minor_version() -> u32 {
 /// # Returns
 ///
 /// the monitor this surface will/has requested to be on, can be [`None`].
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_get_monitor")]
 #[doc(alias = "get_monitor")]
 pub fn monitor(window: &impl IsA<gtk::Window>) -> Option<gdk::Monitor> {
@@ -223,8 +223,8 @@ pub fn monitor(window: &impl IsA<gtk::Window>) -> Option<gdk::Monitor> {
 ///
 /// a reference to the namespace property. If namespace is unset, returns the
 /// default namespace ("gtk-layer-shell"). Never returns [`None`].
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_get_namespace")]
 #[doc(alias = "get_namespace")]
 pub fn namespace(window: &impl IsA<gtk::Window>) -> Option<glib::GString> {
@@ -240,8 +240,8 @@ pub fn namespace(window: &impl IsA<gtk::Window>) -> Option<glib::GString> {
 ///
 /// version of the zwlr_layer_shell_v1 protocol supported by the
 /// compositor or 0 if the protocol is not supported.
-#[cfg(any(feature = "v0_6", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
+#[cfg(any(feature = "v0_6", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
 #[doc(alias = "gtk_layer_get_protocol_version")]
 #[doc(alias = "get_protocol_version")]
 pub fn protocol_version() -> u32 {
@@ -251,8 +251,8 @@ pub fn protocol_version() -> u32 {
     }
 }
 
-//#[cfg(any(feature = "v0_4", feature = "dox"))]
-//#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_4")))]
+//#[cfg(any(feature = "v0_4", docsrs))]
+//#[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
 //#[doc(alias = "gtk_layer_get_zwlr_layer_surface_v1")]
 //#[doc(alias = "get_zwlr_layer_surface_v1")]
 //pub fn zwlr_layer_surface_v1(window: &impl IsA<gtk::Window>) -> /*Unimplemented*/Option<Basic: Pointer> {
@@ -277,8 +277,8 @@ pub fn init_for_window(window: &impl IsA<gtk::Window>) {
 /// # Returns
 ///
 /// if `window` has been initialized as a layer surface.
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_is_layer_window")]
 pub fn is_layer_window(window: &impl IsA<gtk::Window>) -> bool {
     assert_initialized_main_thread!();
@@ -293,8 +293,8 @@ pub fn is_layer_window(window: &impl IsA<gtk::Window>) -> bool {
 ///
 /// [`true`] if the platform is Wayland and Wayland compositor supports the
 /// zwlr_layer_shell_v1 protocol.
-#[cfg(any(feature = "v0_5", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_5")))]
+#[cfg(any(feature = "v0_5", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
 #[doc(alias = "gtk_layer_is_supported")]
 pub fn is_supported() -> bool {
     assert_initialized_main_thread!();
@@ -369,8 +369,8 @@ pub fn set_keyboard_interactivity(window: &impl IsA<gtk::Window>, interactivity:
 /// A layer surface.
 /// ## `mode`
 /// The type of keyboard interactivity requested.
-#[cfg(any(feature = "v0_6", feature = "dox"))]
-#[cfg_attr(feature = "dox", doc(cfg(feature = "v0_6")))]
+#[cfg(any(feature = "v0_6", docsrs))]
+#[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
 #[doc(alias = "gtk_layer_set_keyboard_mode")]
 pub fn set_keyboard_mode(window: &impl IsA<gtk::Window>, mode: KeyboardMode) {
     assert_initialized_main_thread!();
