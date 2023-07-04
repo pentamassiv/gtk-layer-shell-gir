@@ -3,7 +3,7 @@
 // from ../gir-files
 // DO NOT EDIT
 
-#![cfg(target_os = "linux")]
+#![cfg(unix)]
 
 use gtk_layer_shell_sys::*;
 use std::mem::{align_of, size_of};
