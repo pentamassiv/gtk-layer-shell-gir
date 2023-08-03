@@ -35,7 +35,7 @@ libc = "0.2"
 
 [dependencies.glib]
 package = "glib-sys"
-version = "0.17"
+version = "0.18"
 
 [dependencies.gdk]
 package = "gdk-sys"
@@ -57,4 +57,4 @@ v0_4 = []
 v0_5 = ["v0_4"]
 v0_6 = ["v0_5"]
 default = []
-dox = ["glib/dox", "gdk/dox", "gtk/dox"]
+dox = ["gdk/dox", "gtk/dox"]
