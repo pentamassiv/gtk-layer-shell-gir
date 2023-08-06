@@ -26,6 +26,8 @@ version = "0.6"
 
 [package.metadata.docs.rs]
 features = []
+rustc-args = ["--cfg", "docsrs"]
+rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
 
 [lib]
 name = "gtk_layer_shell_sys"
