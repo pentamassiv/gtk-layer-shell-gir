@@ -10,7 +10,6 @@ keywords = ["gtk", "gtk-layer-shell", "wayland", "FFI", "unsafe"]
 categories = ["external-ffi-bindings", "gui"]
 edition = "2021"
 build = "build.rs"
-exclude = ["tests", "Gir.toml"]
 
 [package.metadata.system-deps.gtk_layer_shell_0]
 name = "gtk-layer-shell-0"
