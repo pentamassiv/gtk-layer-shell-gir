@@ -25,7 +25,7 @@ version = "0.5"
 version = "0.6"
 
 [package.metadata.docs.rs]
-features = []
+all-features = true
 rustc-args = ["--cfg", "docsrs"]
 rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
 
@@ -59,4 +59,3 @@ v0_4 = []
 v0_5 = ["v0_4"]
 v0_6 = ["v0_5"]
 default = []
-dox = []
