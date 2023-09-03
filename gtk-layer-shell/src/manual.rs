@@ -6,7 +6,6 @@ pub type ZwlrLayerSurfaceV1 = ffi::zwlr_layer_surface_v1;
 /// # Returns
 ///
 /// The underlying layer surface Wayland object
-///
 #[cfg(feature = "v0_4")]
 #[cfg_attr(docsrs, doc(cfg(feature = "v0_4")))]
 #[doc(alias = "gtk_layer_get_zwlr_layer_surface_v1")]
