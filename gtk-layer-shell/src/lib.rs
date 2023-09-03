@@ -1,4 +1,4 @@
-#![cfg_attr(feature = "dox", feature(doc_cfg))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![deny(warnings)]
 #![allow(clippy::single_component_path_imports)]
 
