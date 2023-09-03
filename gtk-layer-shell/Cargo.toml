@@ -16,20 +16,20 @@ exclude = ["examples"]
 features = ["dox"]
 
 [dependencies]
-libc = "0.2.122"
-bitflags = "2.0"
-glib = "0.17"
-glib-sys = "0.17"
-gdk = { version = "0.17", features = ["v3_24"] }
-gtk = "0.17"
+libc = "0.2"
+bitflags = "2"
+glib = "0.18"
+glib-sys = "0.18"
+gdk = { version = "0.18", features = ["v3_24"] }
+gtk = "0.18"
 ffi = { package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys", version = "0.6" }
 
 [dev-dependencies]
-gio = "0.17"
+gio = "0.18"
 
 [features]
 v0_4 = ["ffi/v0_4"]
 v0_5 = ["ffi/v0_5", "v0_4"]
 v0_6 = ["ffi/v0_6", "v0_5"]
 default = []
-dox = ["glib/dox", "glib-sys/dox", "gdk/dox", "gtk/dox", "ffi/dox"]
+dox = []
