@@ -6,7 +6,7 @@
 gtk-layer-shell-sys:
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell-sys.svg)](https://crates.io/crates/gtk-layer-shell-sys)
 [![docs.rs](https://docs.rs/gtk-layer-shell-sys/badge.svg)](https://docs.rs/gtk-layer-shell-sys)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.6.0/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.6.0)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell-sys/0.7.0/status.svg)](https://deps.rs/crate/gtk-layer-shell-sys/0.7.0)
 
 # gtk-layer-shell-sys
 These are the unsafe FFI bindings for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell). They were automatically generated from its [.gir file](../GtkLayerShell-0.1.gir). This crate is GTK3 only. Use [gtk4-layer-shell](https://crates.io/crates/gtk4-layer-shell) if you need to use it with GTK4.
