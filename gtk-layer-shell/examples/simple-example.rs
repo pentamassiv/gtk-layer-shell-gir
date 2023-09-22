@@ -1,5 +1,6 @@
 use gio::prelude::*;
 use gtk::prelude::*;
+use gtk_layer_shell::{Edge, Layer, LayerShell};
 
 // https://github.com/wmww/gtk-layer-shell/blob/master/examples/simple-example.c
 fn activate(application: &gtk::Application) {
@@ -7,31 +8,31 @@ fn activate(application: &gtk::Application) {
     let window = gtk::ApplicationWindow::new(application);
 
     // Before the window is first realized, set it up to be a layer surface
-    gtk_layer_shell::init_for_window(&window);
+    window.init_layer_shell();
 
     // Display it above normal windows
-    gtk_layer_shell::set_layer(&window, gtk_layer_shell::Layer::Overlay);
+    window.set_layer(Layer::Overlay);
 
     // Push other windows out of the way
-    gtk_layer_shell::auto_exclusive_zone_enable(&window);
+    window.auto_exclusive_zone_enable();
 
     // The margins are the gaps around the window's edges
     // Margins and anchors can be set like this...
-    gtk_layer_shell::set_margin(&window, gtk_layer_shell::Edge::Left, 40);
-    gtk_layer_shell::set_margin(&window, gtk_layer_shell::Edge::Right, 40);
-    gtk_layer_shell::set_margin(&window, gtk_layer_shell::Edge::Top, 20);
+    window.set_layer_shell_margin(Edge::Left, 40);
+    window.set_layer_shell_margin(Edge::Right, 40);
+    window.set_layer_shell_margin(Edge::Top, 20);
 
     // ... or like this
     // Anchors are if the window is pinned to each edge of the output
     let anchors = [
-        (gtk_layer_shell::Edge::Left, true),
-        (gtk_layer_shell::Edge::Right, true),
-        (gtk_layer_shell::Edge::Top, false),
-        (gtk_layer_shell::Edge::Bottom, true),
+        (Edge::Left, true),
+        (Edge::Right, true),
+        (Edge::Top, false),
+        (Edge::Bottom, true),
     ];
 
     for (anchor, state) in anchors {
-        gtk_layer_shell::set_anchor(&window, anchor, state);
+        window.set_anchor(anchor, state);
     }
 
     // Set up a widget
