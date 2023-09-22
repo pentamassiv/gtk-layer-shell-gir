@@ -6,7 +6,7 @@
 gtk-layer-shell:
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell.svg)](https://crates.io/crates/gtk-layer-shell)
 [![docs.rs](https://docs.rs/gtk-layer-shell/badge.svg)](https://docs.rs/gtk-layer-shell)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.7.1/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.7.1)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.8.0/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.8.0)
 
 # gtk-layer-shell
 This is the safe wrapper for [gtk-layer-shell](https://github.com/wmww/gtk-layer-shell), automatically generated from its [.gir file](../GtkLayerShell-0.1.gir). The unsafe bindings can be found [here](https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell-sys). This crate is GTK3 only. Use [gtk4-layer-shell](https://crates.io/crates/gtk4-layer-shell) if you need to use it with GTK4.
