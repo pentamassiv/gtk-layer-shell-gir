@@ -17,7 +17,7 @@ These are the unsafe bindings. You most likely want to use the safe [wrapper](ht
 ## Generating the bindings
 Generating the bindings yourself is not necessary to be able to use it. If you want to do it anyways, here are the steps you can follow to generate the bindings yourself.
 
-You need to have Rust, and Gtk3 installed. Clone the repository AND the submodule "gir".
+You need to have Rust, Gtk3 and gtk-layer-shell installed installed. Clone the repository AND the submodules "gir" and "gir-files".
 ```bash
 git clone --recurse-submodules -j8 https://github.com/pentamassiv/gtk-layer-shell-gir.git
 cd ./gtk-layer-shell-gir
