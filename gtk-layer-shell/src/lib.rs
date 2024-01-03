@@ -39,8 +39,8 @@ pub use auto::functions::is_supported;
 #[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
 pub use auto::functions::protocol_version;
 
-mod manual;
-pub use manual::*;
+// mod manual;
+// pub use manual::*;
 
 pub trait LayerShell: IsA<gtk::Window> {
     /// When auto exclusive zone is enabled, exclusive zone is automatically set to the
