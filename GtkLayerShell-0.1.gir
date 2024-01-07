@@ -48,30 +48,36 @@ future releases as more entries are added)</doc>
       </member>
     </enumeration>
     <enumeration name="KeyboardMode" c:type="GtkLayerShellKeyboardMode">
-      <doc xml:space="preserve"
-           filename="include/gtk-layer-shell.h"
-           line="74">GTK_LAYER_SHELL_KEYBOARD_MODE_NONE: This window should not receive keyboard events.
-GTK_LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE: This window should have exclusive focus if it is on the top or overlay layer.
-GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND: The user should be able to focus and unfocues this window in an implementation
-defined way. Not supported for protocol version &lt; 4.
-GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER: Should not be used except to get the number of entries. (NOTE: may change in
-future releases as more entries are added)</doc>
       <source-position filename="include/gtk-layer-shell.h" line="88"/>
       <member name="none"
               value="0"
               c:identifier="GTK_LAYER_SHELL_KEYBOARD_MODE_NONE">
+        <doc xml:space="preserve"
+             filename="include/gtk-layer-shell.h"
+             line="76">This window should not receive keyboard events.</doc>
       </member>
       <member name="exclusive"
               value="1"
               c:identifier="GTK_LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE">
+        <doc xml:space="preserve"
+             filename="include/gtk-layer-shell.h"
+             line="77">This window should have exclusive focus if it is on the top or overlay layer.</doc>
       </member>
       <member name="on_demand"
               value="2"
               c:identifier="GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND">
+        <doc xml:space="preserve"
+             filename="include/gtk-layer-shell.h"
+             line="78">The user should be able to focus and unfocues this window in an implementation
+defined way. Not supported for protocol version &lt; 4.</doc>
       </member>
       <member name="entry_number"
               value="3"
               c:identifier="GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER">
+        <doc xml:space="preserve"
+             filename="include/gtk-layer-shell.h"
+             line="80">Should not be used except to get the number of entries. (NOTE: may change in
+future releases as more entries are added)</doc>
       </member>
     </enumeration>
     <enumeration name="Layer" c:type="GtkLayerShellLayer">
