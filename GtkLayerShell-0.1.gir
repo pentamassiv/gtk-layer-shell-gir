@@ -204,7 +204,7 @@ edge. This behavior is specific to gtk-layer-shell and not part of the underlyin
       <return-value transfer-ownership="none">
         <doc xml:space="preserve"
              filename="include/gtk-layer-shell.h"
-             line="383">if keybaord interactivity is enabled</doc>
+             line="383">if keyboard interactivity is enabled</doc>
         <type name="gboolean" c:type="gboolean"/>
       </return-value>
       <parameters>
@@ -393,7 +393,7 @@ compositor or 0 if the protocol is not supported.</doc>
     <docsection name="gtk-layer-shell">
       <doc xml:space="preserve"
            filename="include/gtk-layer-shell.h"
-           line="17">insert more general verbiage here
+           line="17">There is also a [version of this library compatible with GTK4](https://github.com/wmww/gtk4-layer-shell/)
 
 # Forcing Window Size
 If you wish to force your layer surface window to be a different size than it
@@ -482,7 +482,7 @@ Default is %FALSE for each #GtkLayerShellEdge</doc>
         <parameter name="edge" transfer-ownership="none">
           <doc xml:space="preserve"
                filename="include/gtk-layer-shell.h"
-               line="251">A #GtkLayerShellEdge this layer suface may be anchored to.</doc>
+               line="251">A #GtkLayerShellEdge this layer surface may be anchored to.</doc>
           <type name="Edge" c:type="GtkLayerShellEdge"/>
         </parameter>
         <parameter name="anchor_to_edge" transfer-ownership="none">
@@ -670,7 +670,7 @@ Default is %NULL</doc>
            line="170">Set the "namespace" of the surface.
 
 No one is quite sure what this is for, but it probably should be something generic
-("panel", "osk", etc). The @name_space string is copied, and caller maintians
+("panel", "osk", etc). The @name_space string is copied, and caller maintains
 ownership of original. If the window is currently mapped, it will get remapped so
 the change can take effect.
 
