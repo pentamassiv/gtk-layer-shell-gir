@@ -64,23 +64,23 @@ match value {
 }
 }
 
-/// GTK_LAYER_SHELL_KEYBOARD_MODE_NONE: This window should not receive keyboard events.
-/// GTK_LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE: This window should have exclusive focus if it is on the top or overlay layer.
-/// GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND: The user should be able to focus and unfocues this window in an implementation
-/// defined way. Not supported for protocol version < 4.
-/// GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER: Should not be used except to get the number of entries. (NOTE: may change in
-/// future releases as more entries are added)
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[derive(Clone, Copy)]
 #[non_exhaustive]
 #[doc(alias = "GtkLayerShellKeyboardMode")]
 pub enum KeyboardMode {
+    /// This window should not receive keyboard events.
     #[doc(alias = "GTK_LAYER_SHELL_KEYBOARD_MODE_NONE")]
     None,
+    /// This window should have exclusive focus if it is on the top or overlay layer.
     #[doc(alias = "GTK_LAYER_SHELL_KEYBOARD_MODE_EXCLUSIVE")]
     Exclusive,
+    /// The user should be able to focus and unfocues this window in an implementation
+    /// defined way. Not supported for protocol version < 4.
     #[doc(alias = "GTK_LAYER_SHELL_KEYBOARD_MODE_ON_DEMAND")]
     OnDemand,
+    /// Should not be used except to get the number of entries. (NOTE: may change in
+    /// future releases as more entries are added)
     #[doc(alias = "GTK_LAYER_SHELL_KEYBOARD_MODE_ENTRY_NUMBER")]
     EntryNumber,
 #[doc(hidden)]
