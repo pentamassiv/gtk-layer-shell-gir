@@ -85,7 +85,7 @@ pub fn exclusive_zone(window: &impl IsA<gtk::Window>) -> i32 {
 ///
 /// # Returns
 ///
-/// if keybaord interactivity is enabled
+/// if keyboard interactivity is enabled
 #[cfg_attr(feature = "v0_6", deprecated = "Since 0.6")]
 #[cfg(feature = "v0_5")]
 #[cfg_attr(docsrs, doc(cfg(feature = "v0_5")))]
@@ -311,7 +311,7 @@ pub fn is_supported() -> bool {
 /// ## `window`
 /// A layer surface.
 /// ## `edge`
-/// A [`Edge`][crate::Edge] this layer suface may be anchored to.
+/// A [`Edge`][crate::Edge] this layer surface may be anchored to.
 /// ## `anchor_to_edge`
 /// Whether or not to anchor this layer surface to `edge`.
 #[doc(alias = "gtk_layer_set_anchor")]
@@ -433,7 +433,7 @@ pub fn set_monitor(window: &impl IsA<gtk::Window>, monitor: &gdk::Monitor) {
 /// Set the "namespace" of the surface.
 ///
 /// No one is quite sure what this is for, but it probably should be something generic
-/// ("panel", "osk", etc). The `name_space` string is copied, and caller maintians
+/// ("panel", "osk", etc). The `name_space` string is copied, and caller maintains
 /// ownership of original. If the window is currently mapped, it will get remapped so
 /// the change can take effect.
 ///
