@@ -7,6 +7,9 @@
 #![allow(clippy::approx_constant, clippy::type_complexity, clippy::unreadable_literal, clippy::upper_case_acronyms)]
 #![cfg_attr(docsrs, feature(doc_cfg))]
 
+use glib_sys as glib;
+use gdk_sys as gdk;
+use gtk_sys as gtk;
 
 mod manual;
 

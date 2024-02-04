@@ -34,18 +34,9 @@ name = "gtk_layer_shell_sys"
 
 [dependencies]
 libc = "0.2"
-
-[dependencies.glib]
-package = "glib-sys"
-version = "0.18"
-
-[dependencies.gdk]
-package = "gdk-sys"
-version = "0.18"
-
-[dependencies.gtk]
-package = "gtk-sys"
-version = "0.18"
+glib-sys = "0.18"
+gdk-sys = "0.18"
+gtk-sys = "0.18"
 
 [build-dependencies]
 system-deps = "6"
