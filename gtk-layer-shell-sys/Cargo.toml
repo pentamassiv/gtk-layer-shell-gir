@@ -1,15 +1,24 @@
 [package]
 name = "gtk-layer-shell-sys"
 version = "0.7.0"
-authors = ["pentamassiv <pentamassiv@posteo.de>"]
-license = "MIT"
 description = "Unsave gir-generated FFI bindings for gtk-layer-shell"
 repository = "https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell-sys"
 documentation = "https://docs.rs/gtk-layer-shell-sys/"
 keywords = ["gtk", "gtk-layer-shell", "wayland", "FFI", "unsafe"]
 categories = ["external-ffi-bindings", "gui"]
-edition = "2021"
 build = "build.rs"
+
+[package.authors]
+workspace = true
+
+[package.rust-version]
+workspace = true
+
+[package.edition]
+workspace = true
+
+[package.license]
+workspace = true
 
 [package.metadata.system-deps.gtk_layer_shell_0]
 name = "gtk-layer-shell-0"
@@ -25,18 +34,30 @@ version = "0.5"
 version = "0.6"
 
 [package.metadata.docs.rs]
-all-features = true
 rustc-args = ["--cfg", "docsrs"]
 rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
+all-features = true
+
+[features]
+default = []
+v0_4 = []
+v0_5 = ["v0_4"]
+v0_6 = ["v0_5"]
 
 [lib]
 name = "gtk_layer_shell_sys"
 
 [dependencies]
 libc = "0.2"
-glib-sys = "0.18"
-gdk-sys = "0.18"
-gtk-sys = "0.18"
+
+[dependencies.glib-sys]
+workspace = true
+
+[dependencies.gdk-sys]
+workspace = true
+
+[dependencies.gtk-sys]
+workspace = true
 
 [build-dependencies]
 system-deps = "6"
@@ -44,9 +65,3 @@ system-deps = "6"
 [dev-dependencies]
 shell-words = "1.0.0"
 tempfile = "3"
-
-[features]
-v0_4 = []
-v0_5 = ["v0_4"]
-v0_6 = ["v0_5"]
-default = []

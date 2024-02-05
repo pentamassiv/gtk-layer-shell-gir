@@ -2,3 +2,23 @@
 members = ["gtk-layer-shell", "gtk-layer-shell-sys"]
 exclude = ["gir"]
 resolver = "2"
+
+[workspace.package]
+authors = ["pentamassiv <pentamassiv@posteo.de>"]
+rust-version = "1.70"
+edition = "2021"
+license = "MIT"
+
+[workspace.dependencies]
+system-deps = "6"
+libc = "0.2"
+bitflags = "2"
+glib = "0.18"
+glib-sys = "0.18"
+gdk = { version = "0.18", features = ["v3_24"] }
+gdk-sys = "0.18"
+gtk-sys = "0.18"
+gtk = "0.18"
+gio = "0.18"
+shell-words = "1.0"
+tempfile = "3"

@@ -1,36 +1,36 @@
 [package]
 name = "gtk-layer-shell"
 version = "0.8.0"
-authors = ["pentamassiv <pentamassiv@posteo.de>"]
-license = "MIT"
 description = "Save gir-generated wrapper for gtk-layer-shell"
 repository = "https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell"
 documentation = "https://docs.rs/gtk-layer-shell/"
 keywords = ["gtk", "gtk-layer-shell", "wayland", "gir", "wrapper"]
 categories = ["api-bindings", "gui"]
-edition = "2021"
-
 exclude = ["examples"]
+authors.workspace = true
+rust-version.workspace = true
+edition.workspace = true
+license.workspace = true
 
 [package.metadata.docs.rs]
 all-features = true
 rustc-args = ["--cfg", "docsrs"]
 rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
 
-[dependencies]
-libc = "0.2"
-bitflags = "2"
-glib = "0.18"
-glib-sys = "0.18"
-gdk = { version = "0.18", features = ["v3_24"] }
-gtk = "0.18"
-ffi = { package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys", version = "0.7" }
-
-[dev-dependencies]
-gio = "0.18"
-
 [features]
+default = []
 v0_4 = ["ffi/v0_4"]
 v0_5 = ["ffi/v0_5", "v0_4"]
 v0_6 = ["ffi/v0_6", "v0_5"]
-default = []
+
+[dependencies]
+libc.workspace = true
+bitflags.workspace = true
+glib.workspace = true
+glib-sys.workspace = true
+gdk.workspace = true
+gtk.workspace = true
+ffi = { package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys", version = "0.7" }
+
+[dev-dependencies]
+gio.workspace = true
