@@ -19,7 +19,7 @@ gdk = { version = "0.18", features = ["v3_24"] }
 gdk-sys = "0.18"
 gtk-sys = "0.18"
 gtk = "0.18"
-gio = "0.18"
+gio = "0.19"
 shell-words = "1.0"
 tempfile = "3"
 gtk-layer-shell-sys = { path = "gtk-layer-shell-sys", version = "0.7" }
