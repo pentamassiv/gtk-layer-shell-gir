@@ -19,9 +19,9 @@ rustdoc-args = ["--cfg", "docsrs", "--generate-link-to-definition"]
 
 [features]
 default = []
-v0_4 = ["ffi/v0_4"]
-v0_5 = ["ffi/v0_5", "v0_4"]
-v0_6 = ["ffi/v0_6", "v0_5"]
+v0_4 = ["gtk-layer-shell-sys/v0_4"]
+v0_5 = ["gtk-layer-shell-sys/v0_5", "v0_4"]
+v0_6 = ["gtk-layer-shell-sys/v0_6", "v0_5"]
 
 [dependencies]
 libc.workspace = true
@@ -30,7 +30,7 @@ glib.workspace = true
 glib-sys.workspace = true
 gdk.workspace = true
 gtk.workspace = true
-ffi = { package = "gtk-layer-shell-sys", path = "../gtk-layer-shell-sys", version = "0.7" }
+gtk-layer-shell-sys.workspace = true
 
 [dev-dependencies]
 gio.workspace = true
