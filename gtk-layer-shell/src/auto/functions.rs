@@ -3,7 +3,7 @@
 // from ../gir-files
 // DO NOT EDIT
 
-use crate::{Edge,Layer};
+use crate::{ffi,Edge,Layer};
 #[cfg(feature = "v0_6")]
 #[cfg_attr(docsrs, doc(cfg(feature = "v0_6")))]
 use crate::{KeyboardMode};
