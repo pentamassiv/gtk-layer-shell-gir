@@ -46,8 +46,8 @@ updates:
     groups:
       # Name of the group
       gtk:
-        applies-to: version-updates # Applies the group rule to version updates
         update-types:
+          - "major"
           - "minor"
         patterns:
           - "glib"
