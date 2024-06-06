@@ -14,7 +14,7 @@ system-deps = "6"
 libc = "0.2"
 bitflags = "2"
 glib = "0.18"
-glib-sys = "0.18"
+glib-sys = "0.19"
 gdk = { version = "0.18", features = ["v3_24"] }
 gdk-sys = "0.18"
 gtk-sys = "0.18"
