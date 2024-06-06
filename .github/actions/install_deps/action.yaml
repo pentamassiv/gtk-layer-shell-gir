@@ -18,7 +18,7 @@ runs:
     - name: Install git and GTK3
       shell: bash
       run: sudo apt-get install -y git tar libgtk-3-dev libgtk-layer-shell-dev
-    - uses: actions/cache@v3
+    - uses: actions/cache@v4
       with:
         path: |
           ~/.cargo/bin/
