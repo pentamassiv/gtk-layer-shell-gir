@@ -37,9 +37,23 @@ updates:
     schedule:
       interval: "daily"
 
-
   # Maintain dependencies for cargo workspace
   - package-ecosystem: "cargo"
     directory: "/"
     schedule:
       interval: "daily"
+    # Create a group of dependencies to be updated together in one pull request
+    groups:
+      # Name of the group
+      gtk:
+        applies-to: version-updates # Applies the group rule to version updates
+        update-types:
+          - "minor"
+        patterns:
+          - "glib"
+          - "glib-sys"
+          - "gdk"
+          - "gdk-sys"
+          - "gtk-sys"
+          - "gtk"
+          - "gio"
