@@ -1,6 +1,6 @@
 [package]
 name = "gtk-layer-shell-sys"
-version = "0.7.0"
+version = "0.7.1"
 description = "Unsave gir-generated FFI bindings for gtk-layer-shell"
 repository = "https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell-sys"
 documentation = "https://docs.rs/gtk-layer-shell-sys/"
