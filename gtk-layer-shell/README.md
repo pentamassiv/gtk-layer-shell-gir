@@ -43,6 +43,8 @@ Congratulations, you've done it :-)
 If you want to learn more about gir, have a look at its [repo](https://github.com/gtk-rs/gir) or its [book](https://gtk-rs.org/gir/book/).
 
 ## Maintenance status
+The Rust bindings for GTK3 are no longer maintained and the repo has been archived. If you are starting a new project, you should use GTK4 and thus gtk4-layer-shell right from the start.
+
 This crate is just a safe wrapper for the C library so it is feature complete and not actively worked on. There are Github Actions keeping the dependencies up-to-date. If you encounter any problems, feel free to open a PR.
 
 ## Contributing
