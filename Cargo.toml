@@ -10,7 +10,7 @@ edition = "2021"
 license = "MIT"
 
 [workspace.dependencies]
-system-deps = "6"
+system-deps = "7"
 libc = "0.2"
 bitflags = "2"
 glib = "0.18"
