@@ -1,6 +1,6 @@
 [package]
 name = "gtk-layer-shell"
-version = "0.8.0"
+version = "0.8.1"
 description = "Save gir-generated wrapper for gtk-layer-shell"
 repository = "https://github.com/pentamassiv/gtk-layer-shell-gir/tree/main/gtk-layer-shell"
 documentation = "https://docs.rs/gtk-layer-shell/"
