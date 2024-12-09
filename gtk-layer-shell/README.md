@@ -6,7 +6,7 @@
 gtk-layer-shell:
 [![Crate](https://img.shields.io/crates/v/gtk-layer-shell.svg)](https://crates.io/crates/gtk-layer-shell)
 [![docs.rs](https://docs.rs/gtk-layer-shell/badge.svg)](https://docs.rs/gtk-layer-shell)
-[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.8.1/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.8.1)
+[![dependency status](https://deps.rs/crate/gtk-layer-shell/0.8.2/status.svg)](https://deps.rs/crate/gtk-layer-shell/0.8.2)
 
 # This project is UNMAINTAINED. Please use GTK4 and take a look at [gtk4-layer-shell](https://crates.io/crates/gtk4-layer-shell) instead!
 
